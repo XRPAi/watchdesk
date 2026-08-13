@@ -4,161 +4,352 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Watch Desk — Daily rail + freight intel</title>
-<meta name="description" content="Daily rail + freight intel for brokers and shippers. Every morning, verifiable, $199/mo.">
+<meta name="description" content="Daily rail + freight intel for brokers and shippers. A 90-second read every morning at 07:17 ET — every claim cited, every brief on the record.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0f1b2d; --ink: #1a2b3c; --paper: #f7f5f0; --rail: #e05a2b;
-    --muted: #6b7a8a; --line: #d8d2c4;
+    --paper:    #f6f3ea;  /* warm newsprint ground */
+    --card:     #fffdf8;  /* warm white, raised surfaces */
+    --ink:      #24292e;  /* near-black text, soft on newsprint */
+    --navy:     #16324a;  /* deep rail navy — headings, ledger panel */
+    --rail:     #b4471c;  /* single accent: rail-oxide rust */
+    --rail-ink: #8a3410;  /* rust for text on light grounds */
+    --muted:    #5d6670;  /* secondary text, blue-biased */
+    --line:     #e2dccb;  /* hairlines, warm */
+    --ok:       #1f6b45;  /* verification green (statuses only) */
+    --bad:      #a33227;
+    --serif:  "Spectral", Georgia, "Times New Roman", serif;
+    --sans:   "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono:   "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font: 17px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif;
-         background: var(--paper); color: var(--ink); }
-  a { color: var(--rail); text-decoration: none; }
+  html { scroll-behavior: smooth; }
+  body {
+    font: 400 17px/1.68 var(--sans);
+    background: var(--paper); color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--rail-ink); text-decoration: none; }
   a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--rail); outline-offset: 2px; }
+  .mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em;
+          text-transform: uppercase; color: var(--muted); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Hero */
-  header { background: var(--navy); color: #fff; padding: 4.5rem 1.5rem 3.5rem; }
-  .wordmark { font-size: 1.1rem; letter-spacing: .18em; text-transform: uppercase;
-              color: #8fa3b8; margin-bottom: 1.6rem; }
-  header h1 { font-size: 2.6rem; line-height: 1.15; max-width: 640px; }
-  header h1 em { color: var(--rail); font-style: normal; }
-  header .sub { color: #b9c6d4; font-size: 1.2rem; margin-top: 1rem; max-width: 560px; }
-  .cta { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: .8rem 1.4rem; border-radius: 6px;
-         font-weight: 600; font-size: 1rem; }
+  /* ── Top bar ─────────────────────────────────────────────────────── */
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+              letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .navlinks { display: flex; gap: 1.5rem; font-size: .95rem; }
+  .navlinks a { color: var(--muted); }
+  .navlinks a:hover { color: var(--ink); text-decoration: none; }
+  @media (max-width: 640px) { .navlinks { display: none; } }
+
+  /* ── Hero ────────────────────────────────────────────────────────── */
+  header { padding: 4.75rem 1.5rem 3rem; max-width: 1080px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1.5rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.35rem, 5.4vw, 3.5rem);
+              line-height: 1.06; letter-spacing: -.01em; color: var(--navy);
+              max-width: 15.5em; text-wrap: balance; }
+  .lede { margin-top: 1.5rem; font-size: 1.16rem; line-height: 1.62; color: var(--muted);
+          max-width: 34em; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .cta { margin-top: 2.1rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .8rem 1.45rem; border-radius: 4px;
+         font-weight: 600; font-size: 1rem; line-height: 1.2; }
+  .btn:hover { text-decoration: none; }
   .btn-primary { background: var(--rail); color: #fff; }
-  .btn-primary:hover { background: #c94e22; text-decoration: none; }
-  .btn-ghost { border: 1px solid #3d5268; color: #dbe4ee; }
-  .btn-ghost:hover { border-color: #8fa3b8; text-decoration: none; }
+  .btn-primary:hover { background: #9c3d13; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--navy); background: var(--card); }
+  .btn-ghost:hover { border-color: var(--muted); }
 
-  main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
-  h2 { font-size: 1.25rem; margin: 3rem 0 1rem; color: var(--navy);
-       border-bottom: 2px solid var(--line); padding-bottom: .4rem; }
-  h2:first-child { margin-top: 0; }
-  p { margin-bottom: 1rem; }
+  /* Rail-line motif: a hairline with tick marks under the hero */
+  .track { height: 1px; background: var(--line); position: relative;
+           max-width: 1080px; margin: 0 auto; }
+  .track::before { content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, var(--line) 0 2px, transparent 2px 84px); }
 
-  /* What you get */
-  .sections { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-  .section { background: #fff; border: 1px solid var(--line); border-radius: 8px;
-             padding: 1rem 1.1rem; }
-  .section h3 { font-size: .95rem; color: var(--navy); margin-bottom: .3rem; }
-  .section p { font-size: .9rem; color: var(--muted); margin: 0; }
-  @media (max-width: 640px) { .sections { grid-template-columns: 1fr; } }
+  /* ── Sections ────────────────────────────────────────────────────── */
+  main { max-width: 1080px; margin: 0 auto; padding: 4.25rem 1.5rem 5rem; }
+  section { padding: 2.1rem 0; }
+  .kicker { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+            text-transform: uppercase; color: var(--rail-ink); margin-bottom: .9rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.85rem; line-height: 1.14;
+       color: var(--navy); margin-bottom: .55rem; text-wrap: balance; }
+  .sub { color: var(--muted); max-width: 38em; margin-bottom: 1.9rem; }
 
-  /* Sample brief */
-  .sample { background: #fff; border: 1px solid var(--line); border-radius: 8px;
-            padding: 1.2rem 1.4rem; }
-  .sample .muted { color: var(--muted); }
+  /* ── Today's brief — the docket card (the product, shown) ────────── */
+  .docket { background: var(--card); border: 1px solid var(--line);
+            border-top: 3px solid var(--navy); border-radius: 4px;
+            padding: 1.4rem 1.8rem 1.6rem; max-width: 46em; }
+  .docket-head { display: flex; justify-content: space-between; gap: 1rem;
+                 padding-bottom: .7rem; border-bottom: 1px solid var(--line); }
+  .docket .docket-link { font-family: var(--mono); font-size: .74rem; font-weight: 500;
+        letter-spacing: .08em; text-transform: uppercase; color: var(--navy);
+        display: inline-block; margin: 1.1rem 0 .2rem; }
+  .docket .docket-link:hover { color: var(--rail-ink); }
+  .docket .docket-link::after { content: " →"; color: var(--rail); }
+  .docket ul.tldr { list-style: none; margin: 0; }
+  .docket ul.tldr li { padding: .62rem 0 .62rem 1.5rem; position: relative;
+                       border-top: 1px solid #f0ebdd; font-size: .98rem; color: var(--ink); }
+  .docket ul.tldr li:first-child { border-top: none; }
+  .docket ul.tldr li::before { content: ""; position: absolute; left: 0; top: 1.14rem;
+    width: .6rem; height: 2px; background: var(--rail); border-radius: 1px; }
+  .docket p.muted { color: var(--muted); font-size: .98rem; }
 
-  /* Proof */
-  .moat { background: #fff; border-left: 4px solid var(--rail);
-          padding: 1.2rem 1.4rem; border-radius: 0 6px 6px 0; font-size: 1.05rem; }
+  /* ── What you get — the daily structure ──────────────────────────── */
+  .sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .section { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+             padding: 1.2rem 1.3rem; }
+  .section .cad { font-family: var(--mono); font-size: .64rem; letter-spacing: .12em;
+                  color: var(--rail-ink); display: block; margin-bottom: .55rem; }
+  .section h3 { font-size: 1.02rem; color: var(--navy); margin-bottom: .35rem;
+                font-weight: 600; }
+  .section p { font-size: .9rem; color: var(--muted); line-height: 1.55; }
+  @media (max-width: 860px) { .sections { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .sections { grid-template-columns: 1fr; } }
 
-  /* Pricing */
-  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .plan { background: #fff; border: 1px solid var(--line); border-radius: 8px;
-          padding: 1.4rem; }
-  .plan.featured { border: 2px solid var(--rail); }
-  .plan h3 { font-size: 1rem; color: var(--navy); }
-  .plan .price { font-size: 1.8rem; font-weight: 700; color: var(--navy); margin: .4rem 0; }
-  .plan .price span { font-size: .9rem; font-weight: 400; color: var(--muted); }
-  .plan ul { list-style: none; margin: .8rem 0 1.2rem; font-size: .92rem; }
-  .plan li { padding: .25rem 0; }
-  .plan li::before { content: "— "; color: var(--rail); }
-  .plan .btn { width: 100%; text-align: center; }
-  @media (max-width: 640px) { .plans { grid-template-columns: 1fr; } }
+  /* ── How it's made — a true 01/02/03 sequence ────────────────────── */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .step { padding: 1.5rem 1.6rem; border: 1px solid var(--line); border-radius: 4px;
+          background: var(--card); }
+  .step .n { font-family: var(--mono); font-size: .78rem; letter-spacing: .1em;
+             color: var(--rail-ink); }
+  .step h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600;
+             color: var(--navy); margin: .6rem 0 .55rem; }
+  .step p { font-size: .93rem; color: var(--muted); line-height: 1.62; }
+  .step p a { font-weight: 500; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
 
-  /* Subscribe */
-  .subscribe { background: #fff; border: 1px solid var(--line); border-radius: 8px;
-               padding: 1.4rem; }
-  .subscribe form { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .6rem; }
-  .subscribe input[type=email] { flex: 1; min-width: 220px; padding: .7rem .9rem;
-    border: 1px solid var(--line); border-radius: 6px; font-size: 1rem; }
-  .subscribe button { padding: .7rem 1.2rem; border: none; border-radius: 6px;
-    background: var(--navy); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+  /* ── Proof — the ledger panel ────────────────────────────────────── */
+  .moat { background: var(--navy); color: #dfe7ef; border-radius: 4px;
+          padding: 2rem 2.2rem; }
+  .moat .mono { color: #9fb3c6; margin-bottom: .9rem; }
+  .moat .big { font-family: var(--serif); font-size: 1.3rem; line-height: 1.5;
+               color: #f2f5f8; max-width: 30em; text-wrap: balance; }
+  .moat .big strong { color: #fff; font-weight: 600; }
+  .moat .big a { color: #f0a17a; font-weight: 600; }
+  .moat .note { font-family: var(--sans); font-size: .88rem; color: #9fb3c6;
+                margin-top: 1.2rem; }
+  .moat .note a { color: #cfe0ee; }
 
+  /* ── Pricing ─────────────────────────────────────────────────────── */
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: stretch; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1.8rem 1.9rem; display: flex; flex-direction: column; }
+  .plan.featured { border-color: var(--rail);
+                   box-shadow: 0 1px 0 rgba(14,36,56,.05), 0 8px 28px rgba(14,36,56,.07); }
+  .plan .tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .14em;
+               text-transform: uppercase; color: var(--rail-ink); margin-bottom: .6rem; }
+  .plan h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--navy); }
+  .plan .price { font-family: var(--serif); font-size: 2.5rem; font-weight: 600;
+                 color: var(--navy); margin: .55rem 0 .1rem; letter-spacing: -.01em;
+                 font-variant-numeric: tabular-nums; }
+  .plan .price span { font-family: var(--sans); font-size: .92rem; font-weight: 400;
+                      color: var(--muted); }
+  .plan .desc { font-size: .9rem; color: var(--muted); margin: .4rem 0 1.2rem; }
+  .plan ul { list-style: none; margin: 0 0 1.6rem; font-size: .95rem; flex: 1; }
+  .plan li { padding: .32rem 0 .32rem 1.5rem; position: relative; }
+  .plan li::before { content: ""; position: absolute; left: 0; top: .84rem;
+                     width: .6rem; height: 2px; background: var(--rail); border-radius: 1px; }
+  .plan .btn { text-align: center; }
+  @media (max-width: 720px) { .plans { grid-template-columns: 1fr; } }
+  .risk { margin-top: 1.4rem; font-size: .92rem; color: var(--muted); }
+  .risk strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Subscribe ───────────────────────────────────────────────────── */
+  .subscribe { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+               padding: 1.8rem 2rem; }
+  .subscribe form { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1rem; }
+  .subscribe input[type=email] { flex: 1; min-width: 220px; padding: .78rem .95rem;
+    border: 1px solid var(--line); border-radius: 4px; font-size: 1rem;
+    font-family: var(--sans); background: #fff; color: var(--ink); }
+  .subscribe input[type=email]::placeholder { color: #9aa08c; }
+  .subscribe button { padding: .78rem 1.3rem; border: none; border-radius: 4px;
+    background: var(--navy); color: #fff; font-size: 1rem; font-weight: 600;
+    font-family: var(--sans); cursor: pointer; }
+  .subscribe button:hover { background: #1f4060; }
+  .fine { font-size: .84rem; color: var(--muted); margin-top: .8rem; }
+
+  /* ── Footer ──────────────────────────────────────────────────────── */
   footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem;
-           padding: 2rem 1.5rem 3rem; text-align: center; }
-  footer p { margin: .3rem 0; }
+           padding: 2.2rem 1.5rem 3rem; text-align: center; }
+  footer .mono { display: block; margin-bottom: .8rem; }
+  footer p { margin: .35rem 0; }
+  footer a { color: var(--rail-ink); }
 </style>
 </head>
-<body>
+<body id="top">
+
+<nav class="nav wrap">
+  <a class="wordmark" href="#top">The Watch <em>Desk</em></a>
+  <div class="navlinks">
+    <a href="#brief">Today's brief</a>
+    <a href="#made">How it's made</a>
+    <a href="#pricing">Pricing</a>
+    <a href="proof/">Proof</a>
+  </div>
+</nav>
+
 <header>
-  <div class="wordmark">The Watch Desk</div>
-  <h1>Daily rail + freight intel for brokers and shippers. <em>Every morning, verifiable.</em></h1>
-  <p class="sub">A 90-second read at 07:17 ET: rates, service advisories, port congestion, regulatory — every claim cited, every brief on the record.</p>
+  <p class="eyebrow">Rail + freight intelligence · every morning · 07:17 ET</p>
+  <h1>The morning brief for people who move freight.</h1>
+  <p class="lede">Rates, service advisories, port congestion, regulatory. One tight read
+    every morning at 07:17 ET — <strong>every claim cited, every brief on the record</strong>.
+    A 90-second skim before the first load-board check.</p>
   <div class="cta">
-    <a class="btn btn-primary" href="#sample">Read today's brief</a>
-    <a class="btn btn-ghost" href="#pricing">Become a founding member</a>
+    <a class="btn btn-primary" href="#brief">Read today's brief</a>
+    <a class="btn btn-ghost" href="#pricing">Founding member, $99/mo</a>
   </div>
 </header>
 
+<div class="track"></div>
+
 <main>
-  <h2>What you get</h2>
-  <p>One tight brief every morning, same structure every day — so you know exactly where to look.</p>
-  <div class="sections">
-    <div class="section"><h3>Market snapshot</h3><p>Rail + intermodal rates, volumes, capacity. What moved.</p></div>
-    <div class="section"><h3>Service advisories</h3><p>Class 1 disruptions: weather, derailments, labor, maintenance windows.</p></div>
-    <div class="section"><h3>Port congestion</h3><p>LA/LB, NY/NJ, Savannah, Houston: dwell, backups, chassis.</p></div>
-    <div class="section"><h3>Regulatory</h3><p>STB rulings, demurrage rules, tariffs, policy.</p></div>
-    <div class="section"><h3>Signals worth watching</h3><p>3–5 forward-looking items — the difference between intel and a news recap.</p></div>
-    <div class="section"><h3>Sources</h3><p>Numbered, real URLs. Every non-trivial claim cited inline.</p></div>
-  </div>
-
-  <h2 id="sample">Today's brief</h2>
-  <div class="sample">
-    <!-- LATEST_BRIEF_START -->
-    <p><a href="briefs/freight-2026-08-13.md">Read today's brief — 2026-08-13</a></p>
-<p class="muted">U.S. rail volumes remain strong, with carloads up 2.7% and intermodal up 3.8% year-to-date, driving continued intermodal market expansion [2]. Shippers are advised to lock in intermodal rates now before peak season…</p>
+  <section id="brief">
+    <p class="kicker">Today's brief — the product, shown</p>
+    <h2>The day in rail + freight</h2>
+    <p class="sub">This is what lands in your inbox every morning. Same structure, same
+      discipline — so you know exactly where to look.</p>
+    <div class="docket">
+      <!-- LATEST_BRIEF_START -->
+    <div class="docket-head">
+          <span class="mono">Despatch · freight · 2026-08-13</span>
+          <span class="mono">10 sources</span>
+        </div>
+        <a class="docket-link" href="briefs/freight-2026-08-13.md">Read the full brief</a>
+        <ul class="tldr">
+        <li>U.S. rail volumes remain strong, with carloads up 2.7% and intermodal up 3.8% year-to-date, driving continued intermodal market expansion [2].</li>
+        <li>Shippers are advised to lock in intermodal rates now before peak season drives prices higher, as current intermodal rates remain favorable compared to truckload [3].</li>
+        <li>The STB is actively monitoring service metrics and has demanded updates from the Belt Railway Company of Chicago regarding concerning dwell times at Clearing Yard [9].</li>
+        <li>Planned maintenance on shared freight corridors in California and the Northeast may cause localized service disruptions this weekend.</li>
+        </ul>
     <!-- LATEST_BRIEF_END -->
-  </div>
-
-  <h2>Proof</h2>
-  <div class="moat">
-    The Watch Desk runs on an <strong>append-only ledger</strong>. Every brief is recorded.
-    If a brief doesn't fire, <a href="proof/">this page says so</a>. That's the point.
-  </div>
-
-  <h2 id="pricing">Pricing</h2>
-  <div class="plans">
-    <div class="plan featured">
-      <h3>Founding member</h3>
-      <div class="price">$99<span> /mo, locked for life</span></div>
-      <ul>
-        <li>5 slots only</li>
-        <li>Your price never goes up</li>
-        <li>Direct line for feedback</li>
-      </ul>
-      <!-- GUMROAD_FOUNDING_LINK -->
-      <a class="btn btn-primary" href="#">Claim a founding slot</a>
     </div>
-    <div class="plan">
-      <h3>Standard</h3>
-      <div class="price">$199<span> /mo</span></div>
-      <ul>
-        <li>Cancel anytime</li>
-        <li>7-day refund</li>
-        <li>Every brief, every morning</li>
-      </ul>
-      <!-- GUMROAD_STANDARD_LINK -->
-      <a class="btn btn-primary" href="#">Subscribe</a>
-    </div>
-  </div>
+  </section>
 
-  <h2>Get the free sample</h2>
-  <div class="subscribe">
-    <p>Read the first two weeks free. If it earns its keep, subscribe.</p>
-    <!-- BUTTONDOWN_FORM -->
-    <form action="#" method="post">
-      <input type="email" name="email" placeholder="you@brokerage.com" required>
-      <button type="submit">Send me the brief</button>
-    </form>
-  </div>
+  <section id="what">
+    <p class="kicker">The daily structure — six sections, every morning</p>
+    <h2>Same shape, every day</h2>
+    <p class="sub">The numbers land where they land — AAR on Wednesdays, STB service
+      metrics on Thursdays — and the service picture is always in the same place.</p>
+    <div class="sections">
+      <div class="section"><span class="cad">WED · AAR WEEKLY — THU · STB SERVICE</span><h3>Market snapshot</h3><p>Rail + intermodal rates, volumes, capacity. What moved, week over week.</p></div>
+      <div class="section"><span class="cad">AS IT HAPPENS</span><h3>Service advisories</h3><p>Class 1 disruptions: weather, derailments, labor, maintenance windows on shared corridors.</p></div>
+      <div class="section"><span class="cad">PEAK SEASON WATCH</span><h3>Port congestion</h3><p>LA/LB, NY/NJ, Savannah, Houston — dwell, backups, chassis as volumes build.</p></div>
+      <div class="section"><span class="cad">STB RULINGS · POLICY</span><h3>Regulatory</h3><p>STB rulings, demurrage rules, tariffs — the shifts that change how freight moves.</p></div>
+      <div class="section"><span class="cad">3–5 FORWARD ITEMS</span><h3>Signals worth watching</h3><p>What to track next — the difference between intel and a news recap.</p></div>
+      <div class="section"><span class="cad">NUMBERED, REAL URLS</span><h3>Sources</h3><p>Every non-trivial claim cited inline. Nothing you can't check.</p></div>
+    </div>
+  </section>
+
+  <section id="made">
+    <p class="kicker">How it's made — three honest steps</p>
+    <h2>You can see how every brief is built.</h2>
+    <p class="sub">This is a machine, and we don't hide it. No mystery, no "trust us" —
+      a process you can check, and a record you can audit.</p>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Research</h3>
+        <p>Every morning the desk gathers the rail + freight sources that matter — AAR
+          data, STB filings, Class 1 advisories, port authorities. Primary over
+          aggregators, recent over evergreen.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>Quality gate</h3>
+        <p>Before a brief ships, citations are checked deterministically — every inline
+          reference resolves, no gaps. Filler is rejected. An independent judge reviews
+          structure and fit against the brief.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>The ledger</h3>
+        <p>Every brief is recorded on an append-only ledger. If a brief doesn't fire,
+          that miss is published, not hidden. <a href="proof/">The proof page shows the record.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="moat">
+      <p class="mono">The point, plainly</p>
+      <p class="big">The Watch Desk runs on an <strong>append-only ledger</strong>. Every
+        brief is recorded. If a brief doesn't fire, <a href="proof/">this page says so</a>.
+        That's the whole pitch — you're not buying a promise, you're buying a record.</p>
+      <p class="note">Live status — brief history, missed runs, daemon heartbeat — generated
+        from the ledger, not from us telling you things went fine.</p>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <p class="kicker">Pricing — one price, or a founding price</p>
+    <h2>Two plans, no tiers to parse.</h2>
+    <p class="sub">Pick the one that fits. Cancel anytime.</p>
+    <div class="plans">
+      <div class="plan featured">
+        <span class="tag">Founding member</span>
+        <h3>Founding member</h3>
+        <div class="price">$99<span> /mo, locked for life</span></div>
+        <p class="desc">5 slots. For being early, your price never goes up — even when the
+          standard rate does.</p>
+        <ul>
+          <li>Every brief, every morning</li>
+          <li>Your price locked for life</li>
+          <li>Direct line for feedback</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <!-- GUMROAD_FOUNDING_LINK -->
+        <a class="btn btn-primary" href="#">Claim a founding slot</a>
+      </div>
+      <div class="plan">
+        <span class="tag">Standard</span>
+        <h3>Standard</h3>
+        <div class="price">$199<span> /mo</span></div>
+        <p class="desc">The same brief, the same record, at the regular rate.</p>
+        <ul>
+          <li>Every brief, every morning</li>
+          <li>Cancel anytime</li>
+          <li>7-day refund on your first month</li>
+        </ul>
+        <!-- GUMROAD_STANDARD_LINK -->
+        <a class="btn btn-primary" href="#">Subscribe</a>
+      </div>
+    </div>
+    <p class="risk">Cancel anytime. <strong>7-day refund</strong> on your first month — if
+      the brief doesn't earn its keep, it costs you nothing. Founding slots are first-come;
+      once they're gone, the rate is $199.</p>
+  </section>
+
+  <section id="subscribe">
+    <p class="kicker">Try it first</p>
+    <h2>Read the first two weeks free.</h2>
+    <p class="sub">No credit card. If it earns its keep, subscribe. If not, you've lost
+      nothing but a few minutes a day.</p>
+    <div class="subscribe">
+      <!-- BUTTONDOWN_FORM -->
+      <form action="#" method="post">
+        <input type="email" name="email" placeholder="you@brokerage.com" required>
+        <button type="submit">Send me the brief</button>
+      </form>
+      <p class="fine">Once a day, 07:17 ET. No spam, no lists sold — unsubscribe anytime.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <p>Cancel anytime. 7-day refund. Questions: <a href="mailto:desk@watchdesk.io">desk@watchdesk.io</a></p>
+  <span class="mono">The Watch Desk — daily rail + freight intel</span>
+  <p>Cancel anytime · 7-day refund · founding price locked for life</p>
+  <p>Questions: <a href="mailto:desk@watchdesk.io">desk@watchdesk.io</a> · <a href="proof/">Proof &amp; ledger</a></p>
   <p>© 2026 The Watch Desk</p>
 </footer>
+
 </body>
 </html>
