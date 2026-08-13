@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Watch Desk — Daily rail + freight intel</title>
+<meta name="description" content="Daily rail + freight intel for brokers and shippers. Every morning, verifiable, $199/mo.">
+<style>
+  :root {
+    --navy: #0f1b2d; --ink: #1a2b3c; --paper: #f7f5f0; --rail: #e05a2b;
+    --muted: #6b7a8a; --line: #d8d2c4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 17px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: var(--paper); color: var(--ink); }
+  a { color: var(--rail); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Hero */
+  header { background: var(--navy); color: #fff; padding: 4.5rem 1.5rem 3.5rem; }
+  .wordmark { font-size: 1.1rem; letter-spacing: .18em; text-transform: uppercase;
+              color: #8fa3b8; margin-bottom: 1.6rem; }
+  header h1 { font-size: 2.6rem; line-height: 1.15; max-width: 640px; }
+  header h1 em { color: var(--rail); font-style: normal; }
+  header .sub { color: #b9c6d4; font-size: 1.2rem; margin-top: 1rem; max-width: 560px; }
+  .cta { margin-top: 2rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .8rem 1.4rem; border-radius: 6px;
+         font-weight: 600; font-size: 1rem; }
+  .btn-primary { background: var(--rail); color: #fff; }
+  .btn-primary:hover { background: #c94e22; text-decoration: none; }
+  .btn-ghost { border: 1px solid #3d5268; color: #dbe4ee; }
+  .btn-ghost:hover { border-color: #8fa3b8; text-decoration: none; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  h2 { font-size: 1.25rem; margin: 3rem 0 1rem; color: var(--navy);
+       border-bottom: 2px solid var(--line); padding-bottom: .4rem; }
+  h2:first-child { margin-top: 0; }
+  p { margin-bottom: 1rem; }
+
+  /* What you get */
+  .sections { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .section { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+             padding: 1rem 1.1rem; }
+  .section h3 { font-size: .95rem; color: var(--navy); margin-bottom: .3rem; }
+  .section p { font-size: .9rem; color: var(--muted); margin: 0; }
+  @media (max-width: 640px) { .sections { grid-template-columns: 1fr; } }
+
+  /* Sample brief */
+  .sample { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+            padding: 1.2rem 1.4rem; }
+  .sample .muted { color: var(--muted); }
+
+  /* Proof */
+  .moat { background: #fff; border-left: 4px solid var(--rail);
+          padding: 1.2rem 1.4rem; border-radius: 0 6px 6px 0; font-size: 1.05rem; }
+
+  /* Pricing */
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .plan { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+          padding: 1.4rem; }
+  .plan.featured { border: 2px solid var(--rail); }
+  .plan h3 { font-size: 1rem; color: var(--navy); }
+  .plan .price { font-size: 1.8rem; font-weight: 700; color: var(--navy); margin: .4rem 0; }
+  .plan .price span { font-size: .9rem; font-weight: 400; color: var(--muted); }
+  .plan ul { list-style: none; margin: .8rem 0 1.2rem; font-size: .92rem; }
+  .plan li { padding: .25rem 0; }
+  .plan li::before { content: "— "; color: var(--rail); }
+  .plan .btn { width: 100%; text-align: center; }
+  @media (max-width: 640px) { .plans { grid-template-columns: 1fr; } }
+
+  /* Subscribe */
+  .subscribe { background: #fff; border: 1px solid var(--line); border-radius: 8px;
+               padding: 1.4rem; }
+  .subscribe form { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .6rem; }
+  .subscribe input[type=email] { flex: 1; min-width: 220px; padding: .7rem .9rem;
+    border: 1px solid var(--line); border-radius: 6px; font-size: 1rem; }
+  .subscribe button { padding: .7rem 1.2rem; border: none; border-radius: 6px;
+    background: var(--navy); color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem;
+           padding: 2rem 1.5rem 3rem; text-align: center; }
+  footer p { margin: .3rem 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wordmark">The Watch Desk</div>
+  <h1>Daily rail + freight intel for brokers and shippers. <em>Every morning, verifiable.</em></h1>
+  <p class="sub">A 90-second read at 07:17 ET: rates, service advisories, port congestion, regulatory — every claim cited, every brief on the record.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="#sample">Read today's brief</a>
+    <a class="btn btn-ghost" href="#pricing">Become a founding member</a>
+  </div>
+</header>
+
+<main>
+  <h2>What you get</h2>
+  <p>One tight brief every morning, same structure every day — so you know exactly where to look.</p>
+  <div class="sections">
+    <div class="section"><h3>Market snapshot</h3><p>Rail + intermodal rates, volumes, capacity. What moved.</p></div>
+    <div class="section"><h3>Service advisories</h3><p>Class 1 disruptions: weather, derailments, labor, maintenance windows.</p></div>
+    <div class="section"><h3>Port congestion</h3><p>LA/LB, NY/NJ, Savannah, Houston: dwell, backups, chassis.</p></div>
+    <div class="section"><h3>Regulatory</h3><p>STB rulings, demurrage rules, tariffs, policy.</p></div>
+    <div class="section"><h3>Signals worth watching</h3><p>3–5 forward-looking items — the difference between intel and a news recap.</p></div>
+    <div class="section"><h3>Sources</h3><p>Numbered, real URLs. Every non-trivial claim cited inline.</p></div>
+  </div>
+
+  <h2 id="sample">Today's brief</h2>
+  <div class="sample">
+    <!-- LATEST_BRIEF_START -->
+    <p class="muted">The first brief fires tomorrow 07:17 ET.</p>
+    <!-- LATEST_BRIEF_END -->
+  </div>
+
+  <h2>Proof</h2>
+  <div class="moat">
+    The Watch Desk runs on an <strong>append-only ledger</strong>. Every brief is recorded.
+    If a brief doesn't fire, <a href="proof/">this page says so</a>. That's the point.
+  </div>
+
+  <h2 id="pricing">Pricing</h2>
+  <div class="plans">
+    <div class="plan featured">
+      <h3>Founding member</h3>
+      <div class="price">$99<span> /mo, locked for life</span></div>
+      <ul>
+        <li>5 slots only</li>
+        <li>Your price never goes up</li>
+        <li>Direct line for feedback</li>
+      </ul>
+      <!-- GUMROAD_FOUNDING_LINK -->
+      <a class="btn btn-primary" href="#">Claim a founding slot</a>
+    </div>
+    <div class="plan">
+      <h3>Standard</h3>
+      <div class="price">$199<span> /mo</span></div>
+      <ul>
+        <li>Cancel anytime</li>
+        <li>7-day refund</li>
+        <li>Every brief, every morning</li>
+      </ul>
+      <!-- GUMROAD_STANDARD_LINK -->
+      <a class="btn btn-primary" href="#">Subscribe</a>
+    </div>
+  </div>
+
+  <h2>Get the free sample</h2>
+  <div class="subscribe">
+    <p>Read the first two weeks free. If it earns its keep, subscribe.</p>
+    <!-- BUTTONDOWN_FORM -->
+    <form action="#" method="post">
+      <input type="email" name="email" placeholder="you@brokerage.com" required>
+      <button type="submit">Send me the brief</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>Cancel anytime. 7-day refund. Questions: <a href="mailto:desk@watchdesk.io">desk@watchdesk.io</a></p>
+  <p>© 2026 The Watch Desk</p>
+</footer>
+</body>
+</html>

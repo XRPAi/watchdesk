@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Watch Desk — Proof</title>
+<style>
+  :root {
+    --navy: #0f1b2d; --ink: #1a2b3c; --paper: #f7f5f0; --rail: #e05a2b;
+    --ok: #1e7d4f; --bad: #b3261e; --muted: #6b7a8a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 16px/1.6 -apple-system, "Segoe UI", Roboto, sans-serif;
+         background: var(--paper); color: var(--ink); }
+  header { background: var(--navy); color: #fff; padding: 2.5rem 1.5rem; }
+  header h1 { font-size: 1.6rem; letter-spacing: .02em; }
+  header p { color: #b9c6d4; margin-top: .4rem; }
+  main { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .moat { background: #fff; border-left: 4px solid var(--rail);
+          padding: 1.2rem 1.4rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0;
+          font-size: 1.05rem; }
+  h2 { font-size: 1.1rem; margin: 2rem 0 .8rem; color: var(--navy);
+       border-bottom: 2px solid #d8d2c4; padding-bottom: .3rem; }
+  table { width: 100%; border-collapse: collapse; background: #fff;
+          border-radius: 6px; overflow: hidden; }
+  th, td { text-align: left; padding: .6rem .8rem; border-bottom: 1px solid #e4dfd3; }
+  th { background: #efe9dc; font-size: .85rem; text-transform: uppercase;
+       letter-spacing: .04em; color: var(--muted); }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .muted { color: var(--muted); }
+  a { color: var(--rail); }
+  .meta { color: var(--muted); font-size: .9rem; margin-top: 2.5rem;
+          border-top: 1px solid #d8d2c4; padding-top: 1rem; }
+  code { background: #efe9dc; padding: .1rem .35rem; border-radius: 3px;
+         font-size: .85em; }
+</style>
+</head>
+<body>
+<header>
+  <h1>The Watch Desk — Proof</h1>
+  <p>Daily rail + freight intel. Every brief verifiable.</p>
+</header>
+<main>
+  <div class="moat">
+    The Watch Desk runs on an <strong>append-only ledger</strong>. Every brief is
+    recorded. If a brief doesn't fire, this page says so. That's the point.
+  </div>
+
+  <h2>Brief history</h2>
+  <table>
+    <tr><th>Date</th><th>Status</th><th>Sources</th><th></th></tr>
+    <tr><td colspan="4" class="muted">No freight briefs yet — the first fires tomorrow 07:17.</td></tr>
+
+  </table>
+
+  <h2>Missed runs</h2>
+  <table>
+    <tr><th>Schedule</th><th>Expected</th><th>Last run</th></tr>
+    <tr><td colspan="3" class="ok">No missed runs.</td></tr>
+
+  </table>
+
+  <h2>Daemon heartbeat</h2>
+  <p><span class="ok">daemon alive</span></p>
+  <p class="muted" style="font-size:.85rem">Last confirmed alive: <code>2026-08-13 18:45 UTC</code></p>
+
+  <p class="meta">
+    Ledger: <code>296</code> append-only events ·
+    Generated 2026-08-13 18:46 UTC
+  </p>
+</main>
+</body>
+</html>
