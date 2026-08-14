@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Supply Chain Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #f6f3ea; --card: #fffdf8; --ink: #24292e; --navy: #16324a;
+    --rail: #b4471c; --rail-ink: #8a3410; --muted: #5d6670; --line: #e2dccb;
+    --ok: #1f6b45; --bad: #a33227; --flat: #8a6d1f;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 16px/1.6 var(--sans); background: var(--paper); color: var(--ink);
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--rail-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+              letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .nav a.back { font-size: .95rem; color: var(--muted); }
+  .nav a.back:hover { color: var(--ink); text-decoration: none; }
+  header { padding: 3.5rem 1.5rem 1rem; max-width: 880px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: 2.1rem;
+              line-height: 1.1; color: var(--navy); }
+  header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+            text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--navy);
+       margin: 0 0 .9rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid #f0ebdd;
+           font-variant-numeric: tabular-nums; }
+  th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
+  tr:last-child td { border-bottom: none; }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .flat { color: var(--flat); }
+  .muted { color: var(--muted); }
+  .note { color: var(--muted); font-size: .9rem; margin-top: 1.2rem; }
+  .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
+          border-top: 1px solid var(--line); padding-top: 1rem; }
+  code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
+         padding: .1rem .35rem; border-radius: 3px; }
+  .src { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .col { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+         padding: 1.2rem 1.4rem; }
+  .col h2 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .col .sub { color: var(--muted); font-size: .88rem; margin-bottom: .9rem; }
+  .rulings { list-style: none; }
+  .rulings li { padding: .7rem 0; border-bottom: 1px solid #f0ebdd; }
+  .rulings li:last-child { border-bottom: none; }
+  .rulings .date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--muted); }
+  .rulings a { font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+           margin-bottom: 1.4rem; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1rem 1.2rem; }
+  .stat .label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 1.5rem; font-weight: 700; margin: .3rem 0 .1rem; }
+  .stat .delta { font-size: .85rem; }
+  .movers { list-style: none; }
+  .movers li { display: flex; justify-content: space-between; gap: 1rem;
+               padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  .movers li:last-child { border-bottom: none; }
+  .movers .name { font-weight: 500; }
+  .movers .num { font-family: var(--mono); font-size: .85rem; white-space: nowrap; }
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="wordmark" href="../">The Watch <em>Desk</em></a>
+  <a class="back" href="../">← Back to the site</a>
+</nav>
+<header>
+  <p class="eyebrow">AI + agent ecosystem advisories</p>
+  <h1>AI Supply Chain Watch</h1>
+</header>
+<main>
+
+  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">2</div></div><div class="stat"><div class="label">General</div><div class="value">30</div></div><div class="stat"><div class="label">Total</div><div class="value">32</div></div></div>
+
+  <p class="kicker">Curated AI packages · OSV</p>
+  <h2>AI ecosystem</h2>
+  <p class="muted">Advisories for the curated AI-package list (langchain,
+    transformers, llama-index, ollama, torch, fastapi, …) since
+    <strong>2026-08-07</strong>.</p>
+  <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
+    <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
+  <tr><td><a href="https://osv.dev/vulnerability/GHSA-fpwr-67px-3qhx">GHSA-fpwr-67px-3qhx</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-1194">CVE-2025-1194</a></td><td>2025-04-29</td><td>Transformers Regular Expression Denial of Service (ReDoS) vulnerability</td></tr>
+<tr><td><a href="https://osv.dev/vulnerability/GHSA-6rvg-6v2m-4j46">GHSA-6rvg-6v2m-4j46</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-12720">CVE-2024-12720</a></td><td>2025-03-20</td><td>Transformers Regular Expression Denial of Service (ReDoS) vulnerability</td></tr>
+</table>
+
+  <p class="kicker">GitHub Security Advisories · pip/npm/go/rust</p>
+  <h2>General</h2>
+  <p class="muted">Recent advisories across the ecosystems Koen's stack
+    depends on, since <strong>2026-08-07</strong>.</p>
+  <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
+    <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
+  <tr><td><a href="https://github.com/advisories/GHSA-29rf-f4vv-pvq6">GHSA-29rf-f4vv-pvq6</a></td><td>github.com/authorizerdev/authorizer</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-35511">CVE-2026-35511</a></td><td>2026-08-14</td><td>Authorizer: Zero-click account takeover via OAuth identity linking to unverified email accounts</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-p28v-f755-9qrg">GHSA-p28v-f755-9qrg</a></td><td>@trigger.dev/core</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73654">CVE-2026-73654</a></td><td>2026-08-13</td><td>Trigger.dev: Prototype pollution via run metadata operations → process-wide cross-tenant DoS</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-m42h-3232-vpv3">GHSA-m42h-3232-vpv3</a></td><td>nltk</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-12243">CVE-2026-12243</a></td><td>2026-08-13</td><td>nltk: Arbitrary File Read via Path Traversal in nltk.data.load() through Percent-Encoded Sequences</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-87x5-vmc3-756j">GHSA-87x5-vmc3-756j</a></td><td>vllm</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73559">CVE-2026-73559</a></td><td>2026-08-13</td><td>vLLM: Completion prompt lists fan out into unbounded engine requests</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-rm43-82j9-r4mj">GHSA-rm43-82j9-r4mj</a></td><td>atomic-agents-stack</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-13</td><td>atomic-agents-stack: Dashboard HTTP server path traversal allows arbitrary file read</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-h7p7-w5gc-xj3w">GHSA-h7p7-w5gc-xj3w</a></td><td>pydantic-ai-slim</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54249">CVE-2026-54249</a></td><td>2026-08-13</td><td>Pydantic AI: Unvalidated UploadedFile references in UI adapters allow server-side file access using </td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-48p8-g2fx-3wwm">GHSA-48p8-g2fx-3wwm</a></td><td>github.com/argoproj/argo-workflows/v4</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54526">CVE-2026-54526</a></td><td>2026-08-13</td><td>Argo Workflows: ArtifactGC.PodSpecPatch bypasses Strict/Secure template reference allow-list (Incomp</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-5pq8-3ffp-7w5m">GHSA-5pq8-3ffp-7w5m</a></td><td>hashi-vault-js</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55102">CVE-2026-55102</a></td><td>2026-08-13</td><td>hashi-vault-js: Vault token and secret values exposed in thrown errors</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-vqfp-p66c-xrp9">GHSA-vqfp-p66c-xrp9</a></td><td>ep_etherpad-lite</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55088">CVE-2026-55088</a></td><td>2026-08-13</td><td>ep_etherpad-lite: Device-to-device author-token transfer endpoint is replayable, never expires, and </td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-2jwf-f4xq-f24h">GHSA-2jwf-f4xq-f24h</a></td><td>ep_etherpad-lite</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55086">CVE-2026-55086</a></td><td>2026-08-13</td><td>ep_etherpad-lite: Import/export uses Math.random() for temp file paths; predictable paths on shared </td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-fjgc-3mj7-8rg8">GHSA-fjgc-3mj7-8rg8</a></td><td>ep_etherpad-lite</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55087">CVE-2026-55087</a></td><td>2026-08-13</td><td>ep_etherpad-lite: Cache-poisoning Cross-site Scripting and Open Redirect via x-proxy-path Header</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-2mhj-fhvg-v428">GHSA-2mhj-fhvg-v428</a></td><td>pimcore/pimcore</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55072">CVE-2026-55072</a></td><td>2026-08-13</td><td>Pimcore: ClassDefinition UID regex missing end anchor allows SQL injection via Block.php unquoted ta</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-cxgv-hp74-jj7r">GHSA-cxgv-hp74-jj7r</a></td><td>ansible-jailexec</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55074">CVE-2026-55074</a></td><td>2026-08-12</td><td>Ansible FreeBSD Jail Connection Plugin: Jail escape via symlink following in put_file (host-side roo</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-pfvm-w89x-94jw">GHSA-pfvm-w89x-94jw</a></td><td>SIPSorcery</td><td>nuget</td><td class="bad">HIGH</td><td>—</td><td>2026-08-12</td><td>SIPSorcery: Malformed UDP datagram crashes TurnServer receive loop with no restart, disabling TURN U</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-jwjp-4649-v8jp">GHSA-jwjp-4649-v8jp</a></td><td>SIPSorcery</td><td>nuget</td><td class="bad">HIGH</td><td>—</td><td>2026-08-12</td><td>SIPSorcery vulnerable to Denial of Service via out-of-bounds read in SCTP SACK chunk parsing</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-49m4-vp58-wgc9">GHSA-49m4-vp58-wgc9</a></td><td>stata-mcp</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55071">CVE-2026-55071</a></td><td>2026-08-12</td><td>MCP-for-Stata: Stata Command Injection via Unsanitized `package` in `ado_package_install`</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-w62w-66v9-vvgv">GHSA-w62w-66v9-vvgv</a></td><td>github.com/seaweedfs/seaweedfs</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54917">CVE-2026-54917</a></td><td>2026-08-12</td><td>SeaweedFS: Path traversal in the S3 and Iceberg REST gateways allows cross-bucket access</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-h47f-gmjp-m7rr">GHSA-h47f-gmjp-m7rr</a></td><td>compliance-trestle</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-52776">CVE-2026-52776</a></td><td>2026-08-12</td><td>compliance-trestle has an URLSecurityValidator SSRF allowlist bypass via IPv4-mapped IPv6 and 0.0.0.</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-q939-rpr3-3284">GHSA-q939-rpr3-3284</a></td><td>SSH.NET</td><td>nuget</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-48798">CVE-2026-48798</a></td><td>2026-08-12</td><td>SSH.NET: ScpClient Recursive Download Allows Arbitrary File Write via Server-Controlled SCP Filename</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-88p2-jj8w-j8qg">GHSA-88p2-jj8w-j8qg</a></td><td>github.com/fleetdm/fleet/v4</td><td>go</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-48786">CVE-2026-48786</a></td><td>2026-08-12</td><td>Fleet: Observer-class users can view team enroll secrets and credential-bearing configuration via ta</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-6pvm-2vjj-rx4w">GHSA-6pvm-2vjj-rx4w</a></td><td>thorsten/phpmyfaq</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47132">CVE-2026-47132</a></td><td>2026-08-12</td><td>phpMyFAQ: SQL LIKE Wildcard Injection in Chat User Search Allows Authenticated User Enumeration</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-3763-qp59-59vf">GHSA-3763-qp59-59vf</a></td><td>nimiq-blockchain</td><td>rust</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-46369">CVE-2026-46369</a></td><td>2026-08-12</td><td>nimiq-blockchain: Validity store off by one error</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-jmqm-f8q4-v7wx">GHSA-jmqm-f8q4-v7wx</a></td><td>librenms/librenms</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45694">CVE-2026-45694</a></td><td>2026-08-12</td><td>LibreNMS: Reflected XSS via Proxmox instance/vmid GET parameters injected into document.title JavaSc</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-j5jq-cr68-v2xx">GHSA-j5jq-cr68-v2xx</a></td><td>winter/wn-backend-module</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-35445">CVE-2026-35445</a></td><td>2026-08-12</td><td>Winter: Authenticated backend users can bypass Users controller permission checks</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-5c4f-9pq9-6c77">GHSA-5c4f-9pq9-6c77</a></td><td>winter/wn-cms-module</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-32639">CVE-2026-32639</a></td><td>2026-08-12</td><td>Winter: Broken access control in `Cms\Controllers\Index` allows cross-template actions and unauthori</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-m7jc-g4rc-jmvh">GHSA-m7jc-g4rc-jmvh</a></td><td>winter/wn-backend-module</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-32593">CVE-2026-32593</a></td><td>2026-08-12</td><td>Winter: SQL Injection in Backend Filter Widget numberrange Scope via numbersFromAjax</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-vgp4-2fc4-qff2">GHSA-vgp4-2fc4-qff2</a></td><td>winter/wn-backend-module</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-32258">CVE-2026-32258</a></td><td>2026-08-12</td><td>Winter: Stored XSS through Editor Settings custom styles</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-v7cf-8gh9-gxmj">GHSA-v7cf-8gh9-gxmj</a></td><td>winter/wn-backend-module</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-32257">CVE-2026-32257</a></td><td>2026-08-12</td><td>Winter: Stored XSS through Brand Settings custom styles</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-gqgw-jghv-mxwx">GHSA-gqgw-jghv-mxwx</a></td><td>tablib</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-9318">CVE-2026-9318</a></td><td>2026-08-12</td><td>tablib: Stored XSS in the HTML export via unescaped dataset title</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-9mrh-pw7c-9mqm">GHSA-9mrh-pw7c-9mqm</a></td><td>Microsoft.WindowsDesktop.App.Runtime.win-arm64</td><td>nuget</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-62902">CVE-2026-62902</a></td><td>2026-08-11</td><td>Microsoft Security Advisory CVE-2026-62902 – .NET Information Disclosure Vulnerability</td></tr>
+</table>
+
+  <p class="note"><strong>Methodology:</strong> GitHub Security Advisories
+    (pip/npm/go/rust) are filtered by publish date; OSV querybatch over a
+    curated AI-package list is filtered by modification date (an advisory is
+    shown when it was published <em>or</em> updated since the last run — a
+    modified advisory may have changed scope or severity). Both are fetched
+    directly from their public APIs. No LLM — every row is a real advisory
+    with a source link. OSV querybatch returns sparse records; full details
+    are fetched per advisory (capped at 15 per run).</p>
+
+  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-07 · fetched 2026-08-14 18:22 UTC</p>
+</main>
+</body>
+</html>
