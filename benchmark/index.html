@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Watch Desk vs the incumbents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #f6f3ea; --card: #fffdf8; --ink: #24292e; --navy: #16324a;
+    --rail: #b4471c; --rail-ink: #8a3410; --muted: #5d6670; --line: #e2dccb;
+    --ok: #1f6b45; --bad: #a33227; --flat: #8a6d1f;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 16px/1.6 var(--sans); background: var(--paper); color: var(--ink);
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--rail-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+              letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .nav a.back { font-size: .95rem; color: var(--muted); }
+  .nav a.back:hover { color: var(--ink); text-decoration: none; }
+  header { padding: 3.5rem 1.5rem 1rem; max-width: 880px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: 2.1rem;
+              line-height: 1.1; color: var(--navy); }
+  header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+            text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--navy);
+       margin: 0 0 .9rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid #f0ebdd;
+           font-variant-numeric: tabular-nums; }
+  th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
+  tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .flat { color: var(--flat); }
+  .muted { color: var(--muted); }
+  .note { color: var(--muted); font-size: .9rem; margin-top: 1.2rem; }
+  .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
+          border-top: 1px solid var(--line); padding-top: 1rem; }
+  code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
+         padding: .1rem .35rem; border-radius: 3px; }
+  .src { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .col { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+         padding: 1.2rem 1.4rem; }
+  .col h2 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .col .sub { color: var(--muted); font-size: .88rem; margin-bottom: .9rem; }
+  .rulings { list-style: none; }
+  .rulings li { padding: .7rem 0; border-bottom: 1px solid #f0ebdd; }
+  .rulings li:last-child { border-bottom: none; }
+  .rulings .date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--muted); }
+  .rulings a { font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+           margin-bottom: 1.4rem; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1rem 1.2rem; }
+  .stat .label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 1.5rem; font-weight: 700; margin: .3rem 0 .1rem; }
+  .stat .delta { font-size: .85rem; }
+  .movers { list-style: none; }
+  .movers li { display: flex; justify-content: space-between; gap: 1rem;
+               padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  .movers li:last-child { border-bottom: none; }
+  .movers .name { font-weight: 500; }
+  .movers .num { font-family: var(--mono); font-size: .85rem; white-space: nowrap; }
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="wordmark" href="../">The Watch <em>Desk</em></a>
+  <a class="back" href="../">← Back to the site</a>
+</nav>
+<header>
+  <p class="eyebrow">Why we're different · the four-way position</p>
+  <h1>The Watch Desk vs the incumbents</h1>
+</header>
+<main>
+
+<style>
+  .highlight td { background: #f1ecdf; }
+  .highlight td:first-child { font-weight: 600; }
+  .moat { background: var(--navy); color: #dfe7ef; border-radius: 4px;
+          padding: 1.4rem 1.6rem; margin: 1.6rem 0; }
+  .moat h2 { color: #fff; }
+  .moat p { color: #c9d4de; }
+  .moat a { color: #ffd9c4; }
+  .moat .kicker { color: #ffb98f; }
+  ul.tight { list-style: none; }
+  ul.tight li { padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  ul.tight li:last-child { border-bottom: none; }
+  ul.tight a { font-weight: 500; }
+  .yes { color: var(--ok); font-weight: 600; }
+  .no { color: var(--bad); font-weight: 600; }
+  .part { color: var(--flat); }
+</style>
+
+  <p class="kicker">The four-way position</p>
+  <h2>Daily. Rail. Verifiable. US+Canada.</h2>
+  <p class="muted">Every competitor misses at least one of these four;
+    nobody hits all four. The Watch Desk is the only product that does —
+    and it shows its work.</p>
+
+  <div class="table-scroll"><table>
+    <tr><th>Competitor</th><th>Daily</th><th>Rail</th><th>Verifiable</th><th>US+Canada</th></tr>
+    <tr><td>FreightWaves Market Monitor ($199/mo)</td>
+        <td class="yes">✓</td><td class="no">✗ intermodal only</td>
+        <td class="no">✗</td><td class="part">◐</td></tr>
+    <tr><td>RailState (enterprise)</td>
+        <td class="no">✗ real-time platform</td><td class="yes">✓</td>
+        <td class="no">✗</td><td class="yes">✓</td></tr>
+    <tr><td>Argus Rail Business ($5k–20k/yr)</td>
+        <td class="no">✗ weekly</td><td class="yes">✓</td>
+        <td class="no">✗</td><td class="yes">✓</td></tr>
+    <tr><td>FTR Rail Update ($3,500/yr)</td>
+        <td class="no">✗ monthly</td><td class="yes">✓</td>
+        <td class="no">✗</td><td class="part">◐</td></tr>
+    <tr><td>Global Trade Briefings ($149/mo)</td>
+        <td class="yes">✓</td><td class="no">✗ regulatory only</td>
+        <td class="part">◐</td><td class="yes">✓</td></tr>
+    <tr><td>Cargado ($1k–100k/yr)</td>
+        <td class="no">✗ weekly</td><td class="no">✗ truck only</td>
+        <td class="part">◐</td><td class="yes">✓</td></tr>
+    <tr><td>YLOAD / GetSupplyBrief (free)</td>
+        <td class="yes">✓</td><td class="no">✗ news only</td>
+        <td class="part">◐</td><td class="no">✗</td></tr>
+    <tr class="highlight"><td>The Watch Desk ($199/mo)</td>
+        <td class="yes">✓</td><td class="yes">✓</td>
+        <td class="yes">✓</td><td class="yes">✓</td></tr>
+  </table></div>
+
+  <p class="kicker">What the table means</p>
+  <h2>Three gaps nobody else fills</h2>
+  <ul class="tight">
+    <li><strong>Daily + rail + verifiable + US+Canada is unoccupied.</strong>
+      The market splits into free weekly blogs and $5k–$100k+/yr enterprise
+      platforms. Nobody does daily, rail-specific, alerted, and verifiable —
+      the Watch Desk is the first.</li>
+    <li><strong>The $199/mo price point is occupied by exactly one
+      incumbent</strong> — FreightWaves Market Monitor, a truckload-centric
+      index dashboard with no rail carload, demurrage, disruption, or
+      regulatory depth. The Watch Desk bundles five rail products + a daily
+      brief + alerts at the same price.</li>
+    <li><strong>Canada rail is genuinely underserved.</strong> Cargado is
+      truck-only, SONAR is intermodal-only, RailState is enterprise. No daily
+      Canadian rail intel product exists — the Watch Desk's bilingual
+      US+Canada scorecard is the first.</li>
+  </ul>
+
+  <div class="moat">
+    <p class="kicker">The ledger — the moat</p>
+    <h2>We show our work</h2>
+    <p>Every product run is recorded on an append-only ledger with a sha256
+      hash. The <a href="../proof/">proof page</a> cross-checks the on-disk
+      file against the ledger — ✓ verified, or ⚠ changed. And if a run ever
+      fails, you get an alert before you'd notice. No competitor can say
+      that.</p>
+  </div>
+
+  <p class="kicker">See it for yourself</p>
+  <h2>The live products</h2>
+  <ul class="tight">
+    <li><a href="../products/scorecard/">Rail service scorecard</a> — US Class
+      1s + Canada (CN, CPKC, ONR), 12-week trends, ledger-verified</li>
+    <li><a href="../products/intermodal/">Intermodal volumes</a> — US/Canada/
+      Mexico, deterministic spike alerts</li>
+    <li><a href="../products/demurrage/">Demurrage tracker</a> — rule changes
+      + quarterly revenue</li>
+    <li><a href="../products/regulatory/">Regulatory rulings</a> — STB + CTA,
+      rail-filtered</li>
+    <li><a href="../disruptions/">Disruption watch</a> — per-corridor service
+      advisories</li>
+  </ul>
+
+  <p class="meta">Competitor facts from public sources, researched 2026-08-14 (research/reports/watch-desk-competitors-2026-08-14.md). Pricing as published; re-verify at point of sale. · The Watch Desk</p>
+</main>
+</body>
+</html>
