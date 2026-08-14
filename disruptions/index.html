@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Watch Desk — Proof</title>
-<meta name="description" content="The Watch Desk runs on an append-only ledger. Every brief is recorded; if one doesn't fire, this page says so.">
+<title>The Watch Desk — Service Disruptions</title>
+<meta name="description" content="Per-lane rail service advisories across North America — Vancouver to NY/NJ, on the record.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,13 +40,12 @@
   header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
 
   main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .moat { background: var(--navy); color: #dfe7ef; border-radius: 4px;
-          padding: 1.8rem 2rem; margin: 1rem 0 1.5rem; }
-  .moat .mono { color: #9fb3c6; margin-bottom: .7rem; }
-  .moat p.big { font-family: var(--serif); font-size: 1.2rem; line-height: 1.5;
-                 color: #f2f5f8; }
-  .moat strong { color: #fff; font-weight: 600; }
-  .moat a { color: #f0a17a; font-weight: 600; }
+  .lanes { background: var(--navy); color: #dfe7ef; border-radius: 4px;
+           padding: 1.4rem 1.8rem; margin: 1rem 0 1.5rem; }
+  .lanes .mono { color: #9fb3c6; margin-bottom: .5rem; }
+  .lanes .ok { color: #7fd4a8; font-weight: 600; }
+  .lanes .bad { color: #f0a17a; font-weight: 600; }
+  .lanes code { color: #9fb3c6; }
 
   .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
              text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
@@ -74,52 +73,28 @@
   <a class="back" href="../">← Back to the site</a>
 </nav>
 <header>
-  <p class="eyebrow">The record, not the promise</p>
-  <h1>Proof</h1>
-  <p>Daily rail + freight intel. Every brief verifiable, every miss published.</p>
+  <p class="eyebrow">Per-lane, on the record</p>
+  <h1>Service disruptions</h1>
+  <p>Daily advisories across the North American rail network — Vancouver to
+    NY/NJ. Every lane, every day, filed and published.</p>
 </header>
 <main>
-  <div class="moat">
-    <p class="mono">The point, plainly</p>
-    <p class="big">The Watch Desk runs on an <strong>append-only ledger</strong>. Every
-      brief is recorded with its content hash. If a brief doesn't fire, this page says
-      so. That's the point.</p>
+  <div class="lanes">
+    <p class="mono">Right now</p>
+    <p class="muted">No advisories on record yet.</p>
   </div>
 
-  <p class="kicker">Every fire, on the record</p>
-  <h2>Brief history</h2>
+  <p class="kicker">Every advisory, on the record</p>
+  <h2>Disruption timeline</h2>
   <table>
-    <tr><th>Date</th><th>Topic</th><th>Integrity</th><th>Sources</th><th>Hash</th><th></th></tr>
-    <tr><td>2026-08-14</td><td>freight</td><td><span class="ok">unverified</span></td><td>9</td><td><code>28f23877e8</code></td><td><a href="../briefs/freight-2026-08-14.md">read</a></td></tr>
-<tr><td>2026-08-13</td><td>freight</td><td><span class="ok">unverified</span></td><td>10</td><td><code>9060317c85</code></td><td><a href="../briefs/freight-2026-08-13.md">read</a></td></tr>
+    <tr><th>Date</th><th>Corridor</th><th>Status</th><th></th></tr>
+    <tr><td colspan="4" class="muted">No disruption briefs yet — the first fires tomorrow 09:47.</td></tr>
 
   </table>
-
-  <p class="kicker">Deterministic products, on the record</p>
-  <h2>Product artifacts</h2>
-  <table>
-    <tr><th>Date</th><th>Product</th><th>Integrity</th><th>Hash</th><th></th></tr>
-    <tr><td>2026-08-14</td><td>scorecard</td><td><span class="ok">unverified</span></td><td><code>386964c5e6</code></td><td><a href="../products/scorecard/">open</a></td></tr>
-
-  </table>
-
-  <p class="kicker">Silence is the alarm</p>
-  <h2>Missed runs</h2>
-  <table>
-    <tr><th>Schedule</th><th>Expected</th><th>Last run</th></tr>
-    <tr><td class="bad">research-crypto</td><td>expected 2026-08-14T08:47:00-04:00</td><td>last ran 2026-08-13T12:48:29.645689+00:00</td></tr>
-
-  </table>
-
-  <p class="kicker">The machine, alive</p>
-  <h2>Daemon heartbeat</h2>
-  <p><span class="ok">daemon alive</span></p>
-  <p class="muted" style="font-size:.85rem">Last confirmed alive: <code>2026-08-14 16:20 UTC</code></p>
 
   <p class="meta">
-    Ledger: <code>384</code> append-only events ·
-    <code>0</code> briefs hash-verified ·
-    <code>2</code> pre-ledger
+    <code>0</code> advisories on record ·
+    <code>0</code> active
     Generated 2026-08-14 16:24 UTC
   </p>
 </main>
