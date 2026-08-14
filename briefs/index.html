@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Watch Desk — Service Disruptions</title>
-<meta name="description" content="Per-lane rail service advisories across North America — Vancouver to NY/NJ, on the record.">
+<title>The Watch Desk — Briefs</title>
+<meta name="description" content="Every published Watch Desk brief, on the record.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,31 +40,23 @@
   header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
 
   main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-  .lanes { background: var(--navy); color: #dfe7ef; border-radius: 4px;
-           padding: 1.4rem 1.8rem; margin: 1rem 0 1.5rem; }
-  .lanes .mono { color: #9fb3c6; margin-bottom: .5rem; }
-  .lanes .ok { color: #7fd4a8; font-weight: 600; }
-  .lanes .bad { color: #f0a17a; font-weight: 600; }
-  .lanes code { color: #9fb3c6; }
-
-  .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
-             text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
-  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--navy);
-       margin: 0 0 .9rem; }
-  table { width: 100%; border-collapse: collapse; background: var(--card);
-          border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid #f0ebdd;
-           font-variant-numeric: tabular-nums; }
-  th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
-       text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
-  tr:last-child td { border-bottom: none; }
+  #results { list-style: none; }
+  .result { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+             padding: 1.1rem 1.3rem; margin-bottom: .7rem; }
+  .row-head { display: flex; justify-content: space-between; gap: 1rem;
+               align-items: baseline; margin-bottom: .3rem; }
+  .mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em;
+           text-transform: uppercase; color: var(--muted); }
   .ok { color: var(--ok); font-weight: 600; }
   .bad { color: var(--bad); font-weight: 600; }
   .muted { color: var(--muted); }
+  .title { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+            color: var(--navy); }
+  .title:hover { color: var(--rail-ink); text-decoration: none; }
+  .excerpt { color: var(--ink); margin: .35rem 0 .5rem; font-size: .95rem; }
   .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
-          border-top: 1px solid var(--line); padding-top: 1rem; }
-  code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
-         padding: .1rem .35rem; border-radius: 3px; }
+           border-top: 1px solid var(--line); padding-top: 1rem; }
+  .meta a { color: var(--rail-ink); }
 </style>
 </head>
 <body>
@@ -73,29 +65,20 @@
   <a class="back" href="../">← Back to the site</a>
 </nav>
 <header>
-  <p class="eyebrow">Per-lane, on the record</p>
-  <h1>Service disruptions</h1>
-  <p>Daily advisories across the North American rail network — Vancouver to
-    NY/NJ. Every lane, every day, filed and published.</p>
+  <p class="eyebrow">The daily briefs, on the record</p>
+  <h1>Briefs</h1>
+  <p>Every published brief, newest first. Each entry carries its verification
+    status, so you know what's on the record.</p>
 </header>
 <main>
-  <div class="lanes">
-    <p class="mono">Right now</p>
-    <p class="muted">No advisories on record yet.</p>
-  </div>
+  <ul id="results">
+    <li class="result"><div class="row-head"><span class="mono">freight · 2026-08-14</span><span class="muted">unverified</span></div><a class="title" href="./freight-2026-08-14.md">The Watch Desk — Friday, August 14, 2026</a><p class="excerpt">North American rail volumes remain robust through week 31 of 2026, with total traffic up 3.0% year-over-year [1]. Intermodal growth continues to outpace carloads, driven by a modal shift from…</p></li>
+<li class="result"><div class="row-head"><span class="mono">freight · 2026-08-13</span><span class="muted">unverified</span></div><a class="title" href="./freight-2026-08-13.md">The Watch Desk — Thursday, August 13, 2026</a><p class="excerpt">U.S. rail volumes remain strong, with carloads up 2.7% and intermodal up 3.8% year-to-date, driving continued intermodal market expansion [2]. Shippers are advised to lock in intermodal rates now…</p></li>
 
-  <p class="kicker">Every advisory, on the record</p>
-  <h2>Disruption timeline</h2>
-  <table>
-    <tr><th>Date</th><th>Corridor</th><th>Status</th><th></th></tr>
-    <tr><td colspan="4" class="muted">No disruption briefs yet — the first fires tomorrow 09:47.</td></tr>
-
-  </table>
-
+  </ul>
   <p class="meta">
-    <code>0</code> advisories on record ·
-    <code>0</code> active
-    Generated 2026-08-14 18:45 UTC
+    <code>2</code> briefs ·
+    <a href="../archive/">Search the full archive →</a>
   </p>
 </main>
 </body>
