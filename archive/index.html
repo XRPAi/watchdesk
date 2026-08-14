@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Watch Desk — Archive</title>
+<meta name="description" content="Search every published Watch Desk brief — freight and ports, verified on the record.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ea; --card: #fffdf8; --ink: #24292e; --navy: #16324a;
+    --rail: #b4471c; --rail-ink: #8a3410; --muted: #5d6670; --line: #e2dccb;
+    --ok: #1f6b45; --bad: #a33227;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 16px/1.6 var(--sans); background: var(--paper); color: var(--ink);
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--rail-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+               letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .nav a.back { font-size: .95rem; color: var(--muted); }
+  .nav a.back:hover { color: var(--ink); text-decoration: none; }
+
+  header { padding: 3.5rem 1.5rem 1rem; max-width: 880px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+              text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: 2.1rem;
+               line-height: 1.1; color: var(--navy); }
+  header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
+
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .searchbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+                margin: 1.2rem 0 1rem; }
+  #q { flex: 1 1 260px; font: 400 1rem var(--sans); padding: .7rem .9rem;
+        border: 1px solid var(--line); border-radius: 4px; background: var(--card);
+        color: var(--ink); }
+  #q:focus { outline: 2px solid var(--rail); outline-offset: 1px; }
+  .chips { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .chip { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em;
+           text-transform: uppercase; padding: .4rem .7rem; border: 1px solid var(--line);
+           border-radius: 999px; background: var(--card); color: var(--muted); cursor: pointer; }
+  .chip.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .chip:hover { border-color: var(--rail); color: var(--rail-ink); }
+  .chip.active:hover { color: #fff; }
+
+  #count { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em;
+            text-transform: uppercase; color: var(--muted); margin: 0 0 .8rem; }
+  #results { list-style: none; }
+  .result { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+             padding: 1.1rem 1.3rem; margin-bottom: .7rem; }
+  .row-head { display: flex; justify-content: space-between; gap: 1rem;
+               align-items: baseline; margin-bottom: .3rem; }
+  .mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em;
+           text-transform: uppercase; color: var(--muted); }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .muted { color: var(--muted); }
+  .title { font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+            color: var(--navy); }
+  .title:hover { color: var(--rail-ink); text-decoration: none; }
+  .excerpt { color: var(--ink); margin: .35rem 0 .5rem; font-size: .95rem; }
+  .secs { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .secs code { font-family: var(--mono); font-size: .72rem; background: #f1ecdf;
+                padding: .15rem .45rem; border-radius: 3px; color: var(--muted); }
+  .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
+           border-top: 1px solid var(--line); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="wordmark" href="../">The Watch <em>Desk</em></a>
+  <a class="back" href="../">← Back to the site</a>
+</nav>
+<header>
+  <p class="eyebrow">Every brief, on the record</p>
+  <h1>Archive</h1>
+  <p>Search every published brief — freight and ports. Each entry carries its
+    verification status, so you know what's on the record.</p>
+</header>
+<main>
+  <div class="searchbar">
+    <input id="q" type="search" placeholder="Search the archive… e.g. dwell, intermodal, derailment" autocomplete="off">
+    <div class="chips">
+      <button class="chip active" data-topic="all">All</button>
+      <button class="chip" data-topic="freight">freight</button>
+    </div>
+  </div>
+  <p id="count" class="mono"></p>
+  <ul id="results">
+    <li class="result" data-topic="freight" data-search="the watch desk — friday, august 14, 2026 north american rail volumes remain robust through week 31 of 2026, with total traffic up 3.0% year-over-year [1]. intermodal growth continues to outpace carloads, driven by a modal shift from… market snapshot service advisories port congestion regulatory signals worth watching"><div class="row-head"><span class="mono">freight · 2026-08-14</span><span class="muted">unverified</span></div><a class="title" href="../briefs/freight-2026-08-14.md">The Watch Desk — Friday, August 14, 2026</a><p class="excerpt">North American rail volumes remain robust through week 31 of 2026, with total traffic up 3.0% year-over-year [1]. Intermodal growth continues to outpace carloads, driven by a modal shift from…</p><div class="secs"><code>Market snapshot</code> <code>Service advisories</code> <code>Port congestion</code> <code>Regulatory</code></div></li>
+<li class="result" data-topic="freight" data-search="the watch desk — thursday, august 13, 2026 u.s. rail volumes remain strong, with carloads up 2.7% and intermodal up 3.8% year-to-date, driving continued intermodal market expansion [2]. shippers are advised to lock in intermodal rates now… market snapshot service advisories port congestion regulatory signals worth watching"><div class="row-head"><span class="mono">freight · 2026-08-13</span><span class="muted">unverified</span></div><a class="title" href="../briefs/freight-2026-08-13.md">The Watch Desk — Thursday, August 13, 2026</a><p class="excerpt">U.S. rail volumes remain strong, with carloads up 2.7% and intermodal up 3.8% year-to-date, driving continued intermodal market expansion [2]. Shippers are advised to lock in intermodal rates now…</p><div class="secs"><code>Market snapshot</code> <code>Service advisories</code> <code>Port congestion</code> <code>Regulatory</code></div></li>
+
+  </ul>
+  <p class="meta">
+    <code>2</code> briefs in the archive ·
+    <code>0</code> hash-verified ·
+    <code>1</code> topics
+    Generated 2026-08-14 14:49 UTC
+  </p>
+</main>
+<script>
+  // Live filter over the server-rendered list — no fetch, works offline.
+  const q = document.getElementById("q");
+  const count = document.getElementById("count");
+  const results = document.getElementById("results");
+  const chips = Array.from(document.querySelectorAll(".chip"));
+  let topic = "all";
+
+  function render() {
+    const needle = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const li of results.children) {
+      const okTopic = topic === "all" || li.dataset.topic === topic;
+      const okQ = !needle || li.dataset.search.includes(needle);
+      li.style.display = okTopic && okQ ? "" : "none";
+      if (okTopic && okQ) shown++;
+    }
+    count.textContent = shown + (shown === 1 ? " brief" : " briefs");
+  }
+
+  q.addEventListener("input", render);
+  for (const chip of chips) {
+    chip.addEventListener("click", () => {
+      topic = chip.dataset.topic;
+      chips.forEach(c => c.classList.toggle("active", c === chip));
+      render();
+    });
+  }
+  render();
+</script>
+</body>
+</html>
