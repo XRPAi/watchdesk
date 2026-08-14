@@ -82,15 +82,16 @@
   <div class="moat">
     <p class="mono">The point, plainly</p>
     <p class="big">The Watch Desk runs on an <strong>append-only ledger</strong>. Every
-      brief is recorded. If a brief doesn't fire, this page says so. That's the point.</p>
+      brief is recorded with its content hash. If a brief doesn't fire, this page says
+      so. That's the point.</p>
   </div>
 
   <p class="kicker">Every fire, on the record</p>
   <h2>Brief history</h2>
   <table>
-    <tr><th>Date</th><th>Status</th><th>Sources</th><th></th></tr>
-    <tr><td>2026-08-14</td><td class="ok">ran</td><td>9 sources</td><td><a href="../briefs/freight-2026-08-14.md">read</a></td></tr>
-<tr><td>2026-08-13</td><td class="ok">ran</td><td>10 sources</td><td><a href="../briefs/freight-2026-08-13.md">read</a></td></tr>
+    <tr><th>Date</th><th>Topic</th><th>Integrity</th><th>Sources</th><th>Hash</th><th></th></tr>
+    <tr><td>2026-08-14</td><td>freight</td><td><span class="ok">unverified</span></td><td>9</td><td><code>28f23877e8</code></td><td><a href="../briefs/freight-2026-08-14.md">read</a></td></tr>
+<tr><td>2026-08-13</td><td>freight</td><td><span class="ok">unverified</span></td><td>10</td><td><code>9060317c85</code></td><td><a href="../briefs/freight-2026-08-13.md">read</a></td></tr>
 
   </table>
 
@@ -105,11 +106,13 @@
   <p class="kicker">The machine, alive</p>
   <h2>Daemon heartbeat</h2>
   <p><span class="ok">daemon alive</span></p>
-  <p class="muted" style="font-size:.85rem">Last confirmed alive: <code>2026-08-14 11:50 UTC</code></p>
+  <p class="muted" style="font-size:.85rem">Last confirmed alive: <code>2026-08-14 14:00 UTC</code></p>
 
   <p class="meta">
     Ledger: <code>384</code> append-only events ·
-    Generated 2026-08-14 11:50 UTC
+    <code>0</code> briefs hash-verified ·
+    <code>2</code> pre-ledger
+    Generated 2026-08-14 14:00 UTC
   </p>
 </main>
 </body>
