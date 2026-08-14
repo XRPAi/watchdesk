@@ -103,6 +103,22 @@
     width: .6rem; height: 2px; background: var(--rail); border-radius: 1px; }
   .docket p.muted { color: var(--muted); font-size: .98rem; }
 
+  /* ── Products — the data-driven add-ons ──────────────────────────── */
+  .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+              gap: 1rem; }
+  .product-card { background: var(--card); border: 1px solid var(--line);
+                  border-top: 3px solid var(--rail); border-radius: 4px;
+                  padding: 1.1rem 1.3rem 1.2rem; }
+  .product-head { display: flex; justify-content: space-between; gap: 1rem;
+                  padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+  .product-card h3 { font-size: 1.02rem; color: var(--navy); margin: .7rem 0 .2rem;
+                     font-weight: 600; }
+  .product-card .docket-link { font-family: var(--mono); font-size: .72rem; font-weight: 500;
+        letter-spacing: .08em; text-transform: uppercase; color: var(--navy);
+        display: inline-block; margin-top: .4rem; }
+  .product-card .docket-link:hover { color: var(--rail-ink); }
+  .product-card .docket-link::after { content: " →"; color: var(--rail); }
+
   /* ── What you get — the daily structure ──────────────────────────── */
   .sections { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .section { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
@@ -191,6 +207,7 @@
   <a class="wordmark" href="#top">The Watch <em>Desk</em></a>
   <div class="navlinks">
     <a href="#brief">Today's brief</a>
+    <a href="#products">Products</a>
     <a href="archive/">Archive</a>
     <a href="#made">How it's made</a>
     <a href="#pricing">Pricing</a>
@@ -229,6 +246,24 @@
         <li>North American rail volumes remain robust through week 31 of 2026, with total traffic up 3.0% year-over-year [1]. Intermodal growth continues to outpace carloads, driven by a modal shift…</li>
         </ul>
     <!-- LATEST_FREIGHT_END -->
+    </div>
+  </section>
+
+  <section id="products">
+    <p class="kicker">Beyond the brief — data-driven products</p>
+    <h2>Numbers you can check, not claims you can't.</h2>
+    <p class="sub">The brief is the daily read. These are the deterministic products —
+      fetched straight from the source, rendered by machine, ledger-verified.</p>
+    <div class="products">
+      <div class="product-card">
+        <!-- LATEST_PRODUCT_SCORECARD_START -->
+    <div class="product-head">
+          <span class="mono">Product · scorecard · 2026-08-14</span>
+        </div>
+        <h3>Rail service scorecard</h3>
+        <a class="docket-link" href="products/scorecard/">Open the scorecard</a>
+    <!-- LATEST_PRODUCT_SCORECARD_END -->
+      </div>
     </div>
   </section>
 

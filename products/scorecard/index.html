@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rail service scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #f6f3ea; --card: #fffdf8; --ink: #24292e; --navy: #16324a;
+    --rail: #b4471c; --rail-ink: #8a3410; --muted: #5d6670; --line: #e2dccb;
+    --ok: #1f6b45; --bad: #a33227; --flat: #8a6d1f;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 16px/1.6 var(--sans); background: var(--paper); color: var(--ink);
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--rail-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+              letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .nav a.back { font-size: .95rem; color: var(--muted); }
+  .nav a.back:hover { color: var(--ink); text-decoration: none; }
+  header { padding: 3.5rem 1.5rem 1rem; max-width: 880px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: 2.1rem;
+              line-height: 1.1; color: var(--navy); }
+  header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+            text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--navy);
+       margin: 0 0 .9rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid #f0ebdd;
+           font-variant-numeric: tabular-nums; }
+  th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
+  tr:last-child td { border-bottom: none; }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .flat { color: var(--flat); }
+  .muted { color: var(--muted); }
+  .note { color: var(--muted); font-size: .9rem; margin-top: 1.2rem; }
+  .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
+          border-top: 1px solid var(--line); padding-top: 1rem; }
+  code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
+         padding: .1rem .35rem; border-radius: 3px; }
+  .src { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="wordmark" href="../">The Watch <em>Desk</em></a>
+  <a class="back" href="../">← Back to the site</a>
+</nav>
+<header>
+  <p class="eyebrow">Weekly · Friday 08:47 ET</p>
+  <h1>Rail service scorecard</h1>
+</header>
+<main>
+
+  <p class="kicker">US Class 1s · STB weekly service data</p>
+  <h2>Per-railroad service metrics</h2>
+  <p class="muted">Week ending <strong>2026-08-12</strong>. Green = improved vs
+    prior week, red = degraded, → = flat. Trains held is the daily average across
+    all train types.</p>
+  <table><tr><th>Railroad</th><th>Train speed (mph)</th><th>Terminal dwell (hrs)</th><th>Cars on line</th><th>Trains held / day</th></tr>
+<tr><td><strong>BNSF</strong></td><td class="bad">24.70 <span class="muted">▼-0.2</span></td><td class="bad">22.60 <span class="muted">▲+0.4</span></td><td class="ok">244,062.70 <span class="muted">▼-192.7</span></td><td class="bad">26.10 <span class="muted">▲+5.3</span></td></tr>
+<tr><td><strong>CSX</strong></td><td class="ok">23.90 <span class="muted">▲+0.1</span></td><td class="ok">21.03 <span class="muted">▼-0.3</span></td><td class="ok">186,568.00 <span class="muted">▼-787.0</span></td><td class="bad">5.14 <span class="muted">▲+0.9</span></td></tr>
+<tr><td><strong>NS</strong></td><td class="ok">21.60 <span class="muted">▲+0.1</span></td><td class="flat">22.00 <span class="muted">→</span></td><td class="bad">161,325.00 <span class="muted">▲+211.0</span></td><td class="bad">13.00 <span class="muted">▲+4.0</span></td></tr>
+<tr><td><strong>UP</strong></td><td class="flat">24.20 <span class="muted">→</span></td><td class="bad">20.20 <span class="muted">▲+0.2</span></td><td class="bad">304,708.00 <span class="muted">▲+593.0</span></td><td class="bad">24.00 <span class="muted">▲+7.0</span></td></tr>
+<tr><td><strong>CPKC</strong></td><td class="ok">21.80 <span class="muted">▲+0.9</span></td><td class="bad">24.06 <span class="muted">▲+1.8</span></td><td class="bad">54,038.00 <span class="muted">▲+124.0</span></td><td class="bad">21.00 <span class="muted">▲+1.0</span></td></tr>
+<tr><td><strong>CN</strong></td><td class="flat">— <span class="muted"></span></td><td class="flat">— <span class="muted"></span></td><td class="ok">39,178.71 <span class="muted">▼-242.4</span></td><td class="ok">2.14 <span class="muted">▼-0.6</span></td></tr>
+</table>
+
+  <p class="kicker">CN · Railroad Performance Report</p>
+  <h2>Canadian methodology</h2>
+  <p class="muted">Week ending <strong>2026-08-07</strong>. CN reports only cars-on-line
+    to the STB; speed and dwell here come from CN's own investor report.</p>
+  <table><tr><th>Metric</th><th>Latest</th></tr>
+<tr><td>Train speed (mph)</td><td class="ok">19.09 <span class="muted">▲+0.6</span></td></tr>
+<tr><td>Terminal dwell (hrs)</td><td class="ok">7.22 <span class="muted">▼-0.7</span></td></tr>
+<tr><td>Cars on line</td><td class="ok">84,819.14 <span class="muted">▼-48.0</span></td></tr>
+</table>
+
+  <p class="note"><strong>Methodology note:</strong> CN and the US Class 1s use
+    different calculation methodologies, so direct cross-railroad comparison needs
+    a footnote — the same caveat applies across US Class 1s. Speed is higher-is-
+    better; dwell and trains-held are lower-is-better.</p>
+
+  <p class="meta">Sources: STB EP724 consolidated data through 2026-08-12, CN Railroad Performance Report · Generated 2026-08-14 16:12 UTC · ledger-verified</p>
+</main>
+</body>
+</html>
