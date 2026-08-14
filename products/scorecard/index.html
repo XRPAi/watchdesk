@@ -48,6 +48,14 @@
   th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
        text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
   tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
   .ok { color: var(--ok); font-weight: 600; }
   .bad { color: var(--bad); font-weight: 600; }
   .flat { color: var(--flat); }
@@ -58,6 +66,33 @@
   code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
          padding: .1rem .35rem; border-radius: 3px; }
   .src { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .col { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+         padding: 1.2rem 1.4rem; }
+  .col h2 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .col .sub { color: var(--muted); font-size: .88rem; margin-bottom: .9rem; }
+  .rulings { list-style: none; }
+  .rulings li { padding: .7rem 0; border-bottom: 1px solid #f0ebdd; }
+  .rulings li:last-child { border-bottom: none; }
+  .rulings .date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--muted); }
+  .rulings a { font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+           margin-bottom: 1.4rem; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1rem 1.2rem; }
+  .stat .label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 1.5rem; font-weight: 700; margin: .3rem 0 .1rem; }
+  .stat .delta { font-size: .85rem; }
+  .movers { list-style: none; }
+  .movers li { display: flex; justify-content: space-between; gap: 1rem;
+               padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  .movers li:last-child { border-bottom: none; }
+  .movers .name { font-weight: 500; }
+  .movers .num { font-family: var(--mono); font-size: .85rem; white-space: nowrap; }
 
 </style>
 </head>
@@ -86,22 +121,51 @@
 <tr><td><strong>CN</strong></td><td class="flat">— <span class="muted"></span></td><td class="flat">— <span class="muted"></span></td><td class="ok">39,178.71 <span class="muted">▼-242.4</span></td><td class="ok">2.14 <span class="muted">▼-0.6</span></td></tr>
 </table>
 
-  <p class="kicker">CN · Railroad Performance Report</p>
-  <h2>Canadian methodology</h2>
-  <p class="muted">Week ending <strong>2026-08-07</strong>. CN reports only cars-on-line
-    to the STB; speed and dwell here come from CN's own investor report.</p>
+  <p class="kicker">Canada · CN Railroad Performance Report</p>
+  <h2>Canadian service metrics (CN only)</h2>
+  <p class="muted">Week ending <strong>2026-08-07</strong>. TDIH unreachable this run; CN's own investor report shown. CPKC Canadian data returns when TDIH is back.</p>
   <table><tr><th>Metric</th><th>Latest</th></tr>
 <tr><td>Train speed (mph)</td><td class="ok">19.09 <span class="muted">▲+0.6</span></td></tr>
 <tr><td>Terminal dwell (hrs)</td><td class="ok">7.22 <span class="muted">▼-0.7</span></td></tr>
 <tr><td>Cars on line</td><td class="ok">84,819.14 <span class="muted">▼-48.0</span></td></tr>
 </table>
 
-  <p class="note"><strong>Methodology note:</strong> CN and the US Class 1s use
-    different calculation methodologies, so direct cross-railroad comparison needs
-    a footnote — the same caveat applies across US Class 1s. Speed is higher-is-
-    better; dwell and trains-held are lower-is-better.</p>
+  <p class="kicker">12-week trend · US Class 1s · STB</p>
+<h2>Train speed (mph)</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-27</th><th>06-03</th><th>06-10</th><th>06-17</th><th>06-24</th><th>07-01</th><th>07-08</th><th>07-15</th><th>07-22</th><th>07-29</th><th>08-05</th><th>08-12</th><th>Δ12w</th></tr><tr><td><strong>BNSF</strong></td><td class="muted">25.0</td><td class="muted">25.3</td><td class="muted">24.8</td><td class="muted">24.4</td><td class="muted">24.5</td><td class="muted">24.6</td><td class="muted">24.5</td><td class="muted">25.1</td><td class="muted">24.7</td><td class="muted">24.8</td><td class="muted">24.9</td><td class="muted">24.7</td><td class="bad">-0.3</td></tr><tr><td><strong>CSX</strong></td><td class="muted">23.3</td><td class="muted">23.9</td><td class="muted">23.8</td><td class="muted">23.0</td><td class="muted">22.3</td><td class="muted">22.8</td><td class="muted">22.6</td><td class="muted">23.4</td><td class="muted">24.3</td><td class="muted">24.5</td><td class="muted">23.8</td><td class="muted">23.9</td><td class="ok">+0.6</td></tr><tr><td><strong>NS</strong></td><td class="muted">19.4</td><td class="muted">19.5</td><td class="muted">20.6</td><td class="muted">19.6</td><td class="muted">19.5</td><td class="muted">19.5</td><td class="muted">19.6</td><td class="muted">20.4</td><td class="muted">21.1</td><td class="muted">21.6</td><td class="muted">21.5</td><td class="muted">21.6</td><td class="ok">+2.2</td></tr><tr><td><strong>UP</strong></td><td class="muted">24.7</td><td class="muted">25.1</td><td class="muted">24.6</td><td class="muted">24.3</td><td class="muted">24.4</td><td class="muted">24.3</td><td class="muted">24.4</td><td class="muted">24.5</td><td class="muted">24.5</td><td class="muted">24.5</td><td class="muted">24.2</td><td class="muted">24.2</td><td class="bad">-0.5</td></tr><tr><td><strong>CPKC</strong></td><td class="muted">22.8</td><td class="muted">23.2</td><td class="muted">21.6</td><td class="muted">22.1</td><td class="muted">21.8</td><td class="muted">22.4</td><td class="muted">20.6</td><td class="muted">21.5</td><td class="muted">21.6</td><td class="muted">21.2</td><td class="muted">20.9</td><td class="muted">21.8</td><td class="bad">-1.0</td></tr></table></div>
+<h2>Terminal dwell (hrs)</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-27</th><th>06-03</th><th>06-10</th><th>06-17</th><th>06-24</th><th>07-01</th><th>07-08</th><th>07-15</th><th>07-22</th><th>07-29</th><th>08-05</th><th>08-12</th><th>Δ12w</th></tr><tr><td><strong>BNSF</strong></td><td class="muted">22.6</td><td class="muted">22.2</td><td class="muted">22.1</td><td class="muted">22.4</td><td class="muted">22.7</td><td class="muted">22.7</td><td class="muted">22.9</td><td class="muted">23.3</td><td class="muted">22.3</td><td class="muted">22.7</td><td class="muted">22.2</td><td class="muted">22.6</td><td class="flat">+0.0</td></tr><tr><td><strong>CSX</strong></td><td class="muted">22.1</td><td class="muted">22.3</td><td class="muted">21.1</td><td class="muted">22.3</td><td class="muted">22.6</td><td class="muted">23.1</td><td class="muted">23.1</td><td class="muted">23.7</td><td class="muted">21.7</td><td class="muted">21.5</td><td class="muted">21.4</td><td class="muted">21.0</td><td class="ok">-1.1</td></tr><tr><td><strong>NS</strong></td><td class="muted">25.0</td><td class="muted">25.2</td><td class="muted">23.7</td><td class="muted">23.8</td><td class="muted">25.3</td><td class="muted">23.9</td><td class="muted">23.5</td><td class="muted">23.3</td><td class="muted">22.5</td><td class="muted">22.2</td><td class="muted">22.0</td><td class="muted">22.0</td><td class="ok">-3.0</td></tr><tr><td><strong>UP</strong></td><td class="muted">19.8</td><td class="muted">19.7</td><td class="muted">19.4</td><td class="muted">19.9</td><td class="muted">19.7</td><td class="muted">19.5</td><td class="muted">19.6</td><td class="muted">19.8</td><td class="muted">19.8</td><td class="muted">19.9</td><td class="muted">20.0</td><td class="muted">20.2</td><td class="bad">+0.4</td></tr><tr><td><strong>CPKC</strong></td><td class="muted">21.3</td><td class="muted">20.0</td><td class="muted">19.8</td><td class="muted">21.4</td><td class="muted">22.0</td><td class="muted">21.1</td><td class="muted">21.7</td><td class="muted">21.1</td><td class="muted">20.9</td><td class="muted">21.0</td><td class="muted">22.2</td><td class="muted">24.1</td><td class="bad">+2.7</td></tr></table></div>
+<h2>Cars on line</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-27</th><th>06-03</th><th>06-10</th><th>06-17</th><th>06-24</th><th>07-01</th><th>07-08</th><th>07-15</th><th>07-22</th><th>07-29</th><th>08-05</th><th>08-12</th><th>Δ12w</th></tr><tr><td><strong>BNSF</strong></td><td class="muted">244,512</td><td class="muted">243,143</td><td class="muted">242,502</td><td class="muted">242,756</td><td class="muted">244,318</td><td class="muted">245,592</td><td class="muted">248,251</td><td class="muted">245,541</td><td class="muted">245,139</td><td class="muted">245,284</td><td class="muted">244,255</td><td class="muted">244,063</td><td class="ok">-449</td></tr><tr><td><strong>CSX</strong></td><td class="muted">188,253</td><td class="muted">187,204</td><td class="muted">187,134</td><td class="muted">188,545</td><td class="muted">189,730</td><td class="muted">191,248</td><td class="muted">191,559</td><td class="muted">189,267</td><td class="muted">188,425</td><td class="muted">186,647</td><td class="muted">187,355</td><td class="muted">186,568</td><td class="ok">-1,685</td></tr><tr><td><strong>NS</strong></td><td class="muted">168,155</td><td class="muted">167,383</td><td class="muted">165,771</td><td class="muted">166,348</td><td class="muted">166,548</td><td class="muted">165,190</td><td class="muted">164,730</td><td class="muted">162,606</td><td class="muted">162,415</td><td class="muted">162,440</td><td class="muted">161,114</td><td class="muted">161,325</td><td class="ok">-6,830</td></tr><tr><td><strong>UP</strong></td><td class="muted">301,374</td><td class="muted">300,071</td><td class="muted">301,998</td><td class="muted">302,738</td><td class="muted">302,886</td><td class="muted">302,196</td><td class="muted">300,712</td><td class="muted">299,396</td><td class="muted">301,190</td><td class="muted">303,921</td><td class="muted">304,115</td><td class="muted">304,708</td><td class="bad">+3,334</td></tr><tr><td><strong>CPKC</strong></td><td class="muted">50,192</td><td class="muted">50,500</td><td class="muted">51,232</td><td class="muted">50,910</td><td class="muted">51,132</td><td class="muted">50,658</td><td class="muted">52,022</td><td class="muted">51,524</td><td class="muted">52,030</td><td class="muted">53,001</td><td class="muted">53,914</td><td class="muted">54,038</td><td class="bad">+3,846</td></tr><tr><td><strong>CN</strong></td><td class="muted">38,019</td><td class="muted">38,386</td><td class="muted">38,463</td><td class="muted">39,186</td><td class="muted">38,789</td><td class="muted">39,367</td><td class="muted">38,557</td><td class="muted">38,667</td><td class="muted">38,568</td><td class="muted">39,699</td><td class="muted">39,421</td><td class="muted">39,179</td><td class="bad">+1,159</td></tr></table></div>
+<h2>Trains held / day</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-27</th><th>06-03</th><th>06-10</th><th>06-17</th><th>06-24</th><th>07-01</th><th>07-08</th><th>07-15</th><th>07-22</th><th>07-29</th><th>08-05</th><th>08-12</th><th>Δ12w</th></tr><tr><td><strong>BNSF</strong></td><td class="muted">19.6</td><td class="muted">22.9</td><td class="muted">18.7</td><td class="muted">20.6</td><td class="muted">21.3</td><td class="muted">28.7</td><td class="muted">32.7</td><td class="muted">31.2</td><td class="muted">24.0</td><td class="muted">26.3</td><td class="muted">20.8</td><td class="muted">26.1</td><td class="bad">+6.5</td></tr><tr><td><strong>CSX</strong></td><td class="muted">6.4</td><td class="muted">3.3</td><td class="muted">4.9</td><td class="muted">8.9</td><td class="muted">5.9</td><td class="muted">4.7</td><td class="muted">6.7</td><td class="muted">4.6</td><td class="muted">2.4</td><td class="muted">2.3</td><td class="muted">4.3</td><td class="muted">5.1</td><td class="ok">-1.3</td></tr><tr><td><strong>NS</strong></td><td class="muted">26.0</td><td class="muted">24.0</td><td class="muted">19.0</td><td class="muted">21.0</td><td class="muted">22.0</td><td class="muted">21.0</td><td class="muted">13.0</td><td class="muted">15.0</td><td class="muted">15.0</td><td class="muted">12.0</td><td class="muted">9.0</td><td class="muted">13.0</td><td class="ok">-13.0</td></tr><tr><td><strong>UP</strong></td><td class="muted">17.0</td><td class="muted">11.0</td><td class="muted">10.0</td><td class="muted">18.0</td><td class="muted">16.0</td><td class="muted">19.0</td><td class="muted">15.0</td><td class="muted">20.0</td><td class="muted">22.0</td><td class="muted">22.0</td><td class="muted">17.0</td><td class="muted">24.0</td><td class="bad">+7.0</td></tr><tr><td><strong>CPKC</strong></td><td class="muted">10.0</td><td class="muted">11.0</td><td class="muted">16.0</td><td class="muted">10.0</td><td class="muted">12.0</td><td class="muted">11.0</td><td class="muted">18.0</td><td class="muted">15.0</td><td class="muted">18.0</td><td class="muted">15.0</td><td class="muted">20.0</td><td class="muted">21.0</td><td class="bad">+11.0</td></tr><tr><td><strong>CN</strong></td><td class="muted">2.7</td><td class="muted">1.7</td><td class="muted">2.0</td><td class="muted">2.0</td><td class="muted">2.9</td><td class="muted">3.0</td><td class="muted">1.4</td><td class="muted">2.9</td><td class="muted">2.4</td><td class="muted">3.9</td><td class="muted">2.7</td><td class="muted">2.1</td><td class="ok">-0.6</td></tr></table></div>
+  <p class="kicker">12-week trend · Canada</p>
+<h2>Train speed (mph)</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-22</th><th>05-29</th><th>06-05</th><th>06-12</th><th>06-19</th><th>06-26</th><th>07-03</th><th>07-10</th><th>07-17</th><th>07-24</th><th>07-31</th><th>08-07</th><th>Δ12w</th></tr><tr><td><strong>CN</strong></td><td class="muted">19.5</td><td class="muted">19.2</td><td class="muted">19.5</td><td class="muted">18.8</td><td class="muted">19.3</td><td class="muted">19.0</td><td class="muted">18.8</td><td class="muted">19.1</td><td class="muted">18.7</td><td class="muted">18.0</td><td class="muted">18.5</td><td class="muted">19.1</td><td class="bad">-0.4</td></tr></table></div>
+<h2>Terminal dwell (hrs)</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-22</th><th>05-29</th><th>06-05</th><th>06-12</th><th>06-19</th><th>06-26</th><th>07-03</th><th>07-10</th><th>07-17</th><th>07-24</th><th>07-31</th><th>08-07</th><th>Δ12w</th></tr><tr><td><strong>CN</strong></td><td class="muted">6.9</td><td class="muted">7.1</td><td class="muted">6.9</td><td class="muted">6.9</td><td class="muted">7.0</td><td class="muted">6.9</td><td class="muted">6.7</td><td class="muted">7.0</td><td class="muted">6.9</td><td class="muted">7.4</td><td class="muted">7.9</td><td class="muted">7.2</td><td class="bad">+0.3</td></tr></table></div>
+<h2>Cars on line</h2>
+<div class="table-scroll"><table class="trend"><tr><th>Railroad</th><th>05-22</th><th>05-29</th><th>06-05</th><th>06-12</th><th>06-19</th><th>06-26</th><th>07-03</th><th>07-10</th><th>07-17</th><th>07-24</th><th>07-31</th><th>08-07</th><th>Δ12w</th></tr><tr><td><strong>CN</strong></td><td class="muted">82,885</td><td class="muted">82,652</td><td class="muted">81,860</td><td class="muted">81,730</td><td class="muted">81,967</td><td class="muted">82,060</td><td class="muted">81,299</td><td class="muted">80,484</td><td class="muted">81,825</td><td class="muted">83,944</td><td class="muted">84,867</td><td class="muted">84,819</td><td class="bad">+1,934</td></tr></table></div>
 
-  <p class="meta">Sources: STB EP724 consolidated data through 2026-08-12, CN Railroad Performance Report · Generated 2026-08-14 16:12 UTC · ledger-verified</p>
+  <p class="kicker">Regional & shortline watch · ONR Ontario Northland</p>
+  <h2>Annual freight KPIs (not weekly)</h2>
+  <p class="muted">Fiscal year <strong>FY 2024-25</strong>. ONR is a
+    provincial Crown railway, not a Class 1 — it does not report to the weekly
+    TDIH feed. Figures are annual, from the <a href="https://www.ontarionorthland.ca/sites/default/files/corporate-document-files/2024-25%20ONTC%20Annual%20Report%20-%20EN.pdf">ONTC
+    annual report</a>.</p>
+  <table><tr><th>Metric</th><th>FY 2024-25</th><th>Prior year</th></tr>
+<tr><td>Carloads moved</td><td class="bad">35,894 <span class="muted">▼-2063.0</span></td><td class="muted">37,957</td></tr>
+<tr><td>Revenue ton-miles (M)</td><td class="ok">487.1 <span class="muted">▲+33.5</span></td><td class="muted">453.6</td></tr>
+<tr><td>Slow-order penalty minutes</td><td class="bad">447 <span class="muted">▲+125.0</span></td><td class="muted">322</td></tr>
+</table>
+
+  <p class="note"><strong>Methodology note:</strong> the US Class 1s and the
+    Canadian railroads use different calculation methodologies, so direct
+    cross-railroad comparison needs a footnote — the same caveat applies across
+    US Class 1s. Speed is higher-is-better; dwell and trains-held are
+    lower-is-better.</p>
+
+  <p class="meta">Sources: STB EP724 consolidated data through 2026-08-12, CN Railroad Performance Report, ONTC annual report (ONR, FY 2024-25) · Generated 2026-08-14 19:50 UTC · ledger-verified</p>
 </main>
 </body>
 </html>
