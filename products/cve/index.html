@@ -48,6 +48,14 @@
   th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
        text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
   tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
   .ok { color: var(--ok); font-weight: 600; }
   .bad { color: var(--bad); font-weight: 600; }
   .flat { color: var(--flat); }
@@ -99,7 +107,7 @@
 </header>
 <main>
 
-  <div class="stats"><div class="stat"><div class="label">New KEV</div><div class="value">0</div></div><div class="stat"><div class="label">New CVEs</div><div class="value">152</div></div><div class="stat"><div class="label">Patch priority</div><div class="value">152</div></div></div>
+  <div class="stats"><div class="stat"><div class="label">New KEV</div><div class="value">0</div></div><div class="stat"><div class="label">New CVEs</div><div class="value">196</div></div><div class="stat"><div class="label">Patch priority</div><div class="value">196</div></div></div>
 
   <p class="kicker">CISA KEV · exploited in the wild</p>
   <h2>Exploited now</h2>
@@ -210,7 +218,7 @@
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-13196">CVE-2026-13196</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Nozomi Networks Labs identified a CWE-787: Out-of-bounds Write vulnerability in the process-image management f</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-13197">CVE-2026-13197</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Nozomi Networks Labs identified a CWE-362: Concurrent Execution using Shared Resource with Improper Synchroniz</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-13198">CVE-2026-13198</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Nozomi Networks Labs identified a CWE-362: Concurrent Execution using Shared Resource with Improper Synchroniz</td></tr>
-<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16772">CVE-2026-16772</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>In Akaunting versions <= 3.1.21, low‑privileged authenticated users can modify their own account to assign the</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16772">CVE-2026-16772</a></td><td class="flat">HIGH</td><td>8.10</td><td>2026-08-14</td><td>—</td><td>In Akaunting versions <= 3.1.21, low‑privileged authenticated users can modify their own account to assign the</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19834">CVE-2026-19834</a></td><td class="flat">MEDIUM</td><td>4.70</td><td>2026-08-14</td><td>—</td><td>A vulnerability was determined in Webkul Bagisto up to 2.4.4. Affected is an unknown function of the file /adm</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19835">CVE-2026-19835</a></td><td class="flat">LOW</td><td>3.80</td><td>2026-08-14</td><td>—</td><td>A vulnerability was identified in Webkul Bagisto up to 2.4.4. Affected by this vulnerability is an unknown fun</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19836">CVE-2026-19836</a></td><td class="flat">MEDIUM</td><td>4.30</td><td>2026-08-14</td><td>—</td><td>A security flaw has been discovered in Webkul Bagisto up to 2.4.4. Affected by this issue is some unknown func</td></tr>
@@ -235,7 +243,7 @@
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19845">CVE-2026-19845</a></td><td class="flat">HIGH</td><td>8.80</td><td>2026-08-14</td><td>—</td><td>A vulnerability was determined in TOTOLINK A800R 4.1.2cu.5137_B20200730. This affects the function setStaticDh</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-46380">CVE-2026-46380</a></td><td class="flat">MEDIUM</td><td>6.70</td><td>2026-08-14</td><td>—</td><td>compliance-trestle is a tooling platform for managing compliance as code. Prior to versions 3.12.2 and 4.0.3, </td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-46439">CVE-2026-46439</a></td><td class="flat">HIGH</td><td>7.80</td><td>2026-08-14</td><td>—</td><td>compliance-trestle is a tooling platform for managing compliance as code. Versions prior to 3.12.2 and 4.0.3 h</td></tr>
-<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-46603">CVE-2026-46603</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>VP8L decoding in golang.org/x/image/vp8l can allocate an excessive amount of memory when processing a crafted </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-46603">CVE-2026-46603</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>VP8L decoding in golang.org/x/image/vp8l can allocate an excessive amount of memory when processing a crafted </td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47191">CVE-2026-47191</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>kas is a setup tool for bitbake based projects. Prior to version 5.3, when relying solely on a git commit ID (</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47192">CVE-2026-47192</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>kas is a setup tool for bitbake based projects. Starting in version 4.8 and prior to version 5.3, kas checks o</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-47766">CVE-2026-47766</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>crun is an open source OCI Container Runtime fully written in C. Prior to version 1.28, crun's default device </td></tr>
@@ -268,6 +276,56 @@
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73847">CVE-2026-73847</a></td><td class="flat">MEDIUM</td><td>6.80</td><td>2026-08-14</td><td>—</td><td>Emlog is an open source website building system. In 2.6.26 and earlier, missing CSRF protection on the AI Assi</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73849">CVE-2026-73849</a></td><td class="flat">CRITICAL</td><td>9.80</td><td>2026-08-14</td><td>—</td><td>Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall w</td></tr>
 <tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73850">CVE-2026-73850</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Emlog is an open source website building system. In 2.6.20 and earlier, there is a SQL injection vulnerability</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-7639">CVE-2025-7639</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>The vulnerability, if exploited, could allow an authenticated miscreant 
+with "DNA Authority - Operator" privi</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-18403">CVE-2026-18403</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>LimeSurvey Community Edition 7.0.5 contains an authenticated SQL injection vulnerability in the Central Partic</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19188">CVE-2026-19188</a></td><td class="flat">CRITICAL</td><td>10.00</td><td>2026-08-14</td><td>—</td><td>A critical OS command injection vulnerability has been identified in the
+ Haiwell IoT Cloud HMI Gateway produc</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45699">CVE-2026-45699</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>Netatalk is a Free and Open Source file server suite for Unix-like operating systems. In versions 3.1.19 throu</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-49457">CVE-2026-49457</a></td><td class="flat">CRITICAL</td><td>9.10</td><td>2026-08-14</td><td>—</td><td>erlang_quic is a pure Erlang QUIC implementation. Prior to version 1.4.4, the QUIC client did not authenticate</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50027">CVE-2026-50027</a></td><td class="flat">CRITICAL</td><td>9.80</td><td>2026-08-14</td><td>—</td><td>mcp-memory-service is a semantic memory layer for AI applications. Prior to 10.67.1, all HTTP routes under /ap</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50029">CVE-2026-50029</a></td><td class="flat">MEDIUM</td><td>5.30</td><td>2026-08-14</td><td>—</td><td>js-toml is a TOML parser for JavaScript, Prior to version 1.1.2, the interpreter checks whether a key already </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73678">CVE-2026-73678</a></td><td class="flat">CRITICAL</td><td>10.00</td><td>2026-08-14</td><td>—</td><td>MindsDB Minds Platform version 26.1.0 and earlier contains an unauthenticated remote code execution vulnerabil</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73679">CVE-2026-73679</a></td><td class="flat">HIGH</td><td>7.20</td><td>2026-08-14</td><td>—</td><td>ImpressCMS contains an authenticated remote code execution vulnerability in the custom tag module that allows </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16708">CVE-2026-16708</a></td><td class="flat">HIGH</td><td>8.30</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to obtain sensitive information due to ex</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16879">CVE-2026-16879</a></td><td class="flat">HIGH</td><td>8.80</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to bypass security restrict</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16905">CVE-2026-16905</a></td><td class="flat">MEDIUM</td><td>5.30</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to obtain sensitive informa</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16915">CVE-2026-16915</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to obtain sensitive informa</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17079">CVE-2026-17079</a></td><td class="flat">MEDIUM</td><td>6.30</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to bypass security restrict</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17081">CVE-2026-17081</a></td><td class="flat">HIGH</td><td>8.20</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to write arbitrary files due to improper </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17173">CVE-2026-17173</a></td><td class="flat">MEDIUM</td><td>6.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to obtain sensitive informa</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17175">CVE-2026-17175</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to obtain sensitive informa</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17177">CVE-2026-17177</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to cause a denial of service due to uncon</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17179">CVE-2026-17179</a></td><td class="flat">HIGH</td><td>8.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to cause a denial of servic</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17181">CVE-2026-17181</a></td><td class="flat">CRITICAL</td><td>9.30</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to write files to arbitrary locations due</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17182">CVE-2026-17182</a></td><td class="flat">CRITICAL</td><td>9.80</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to bypass authentication and obtain or al</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17184">CVE-2026-17184</a></td><td class="flat">CRITICAL</td><td>9.80</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to execute arbitrary code due to external</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17186">CVE-2026-17186</a></td><td class="flat">CRITICAL</td><td>9.90</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote attacker to execute arbitrary CL commands due to i</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17209">CVE-2026-17209</a></td><td class="flat">MEDIUM</td><td>6.30</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to execute arbitrary script</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17227">CVE-2026-17227</a></td><td class="flat">MEDIUM</td><td>5.40</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to bypass security restrict</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-18178">CVE-2026-18178</a></td><td class="flat">MEDIUM</td><td>5.40</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to delete arbitrary files d</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-18554">CVE-2026-18554</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>IBM Db2 Mirror for i 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to obtain sensitive informa</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19908">CVE-2026-19908</a></td><td class="flat">HIGH</td><td>7.10</td><td>2026-08-14</td><td>—</td><td>PAX Technology Q80 XCB Daemon Missing Authentication Vulnerability. This vulnerability allows network-adjacent</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19909">CVE-2026-19909</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>PAX Technology Q80 AIP File Parsing Link Following Remote Code Execution Vulnerability. This vulnerability all</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-19910">CVE-2026-19910</a></td><td class="flat">HIGH</td><td>7.50</td><td>2026-08-14</td><td>—</td><td>PAX Technology Q80 Application Installer Signature Verification Bypass Remote Code Execution Vulnerability. Th</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-27871">CVE-2026-27871</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Cwe-327 Use of a Broken or Risky Cryptographic Algorithm vulnerability in Johnson Controls TL280 allows Crypta</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34492">CVE-2026-34492</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>External control of file name or path vulnerability in Johnson Controls Airwall allows : File Manipulation.
+
+T</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-64887">CVE-2026-64887</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Use of hard-coded cryptographic key vulnerability in Johnson Controls Airwall allows : Cryptanalytic Attack.
+
+</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-67365">CVE-2026-67365</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Joomla Extension - icagenda.com - Unauthenticated SQL injection in iCagenda < 4.0.0-4.0.11 - Unauthenticated S</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71571">CVE-2026-71571</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Joomla Extension - icagenda.com -  Authenticated SQL injection via unescaped numeric filter in iCagenda < 2.0.</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73680">CVE-2026-73680</a></td><td class="flat">HIGH</td><td>8.80</td><td>2026-08-14</td><td>—</td><td>Cockpit CMS 2.14.0 and prior contains a command injection vulnerability in the FFmpeg integration that allows </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50523">CVE-2026-50523</a></td><td class="flat">HIGH</td><td>7.80</td><td>2026-08-14</td><td>—</td><td>Improper neutralization of special elements used in a command ('command injection') in Microsoft PowerShell al</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-67366">CVE-2026-67366</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Joomla Extension - icagenda.com - CSRF on frontend registration actions in iCagenda < 2.0.0-4.0.11 - Multiple </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71570">CVE-2026-71570</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>Joomla Extension - icagenda.com - ACL bypass allowing arbitrary user enumeration < 2.0.0-4.0.11 - A backend op</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73682">CVE-2026-73682</a></td><td class="flat">HIGH</td><td>8.80</td><td>2026-08-14</td><td>—</td><td>Semaphore versions prior to 2.18.20 contain an OS command injection (argument injection) vulnerability in the </td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-74248">CVE-2026-74248</a></td><td class="flat">MEDIUM</td><td>4.30</td><td>2026-08-14</td><td>—</td><td>OpenStack Octavia through 18.0.0 mishandles quality of service (QoS) policy authorization. By associating anot</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-69414">CVE-2026-69414</a></td><td class="flat">HIGH</td><td>7.80</td><td>2026-08-14</td><td>—</td><td>Microsoft is aware of an elevation of privilege in the Microsoft Malware Protection Engine in Microsoft Defend</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73683">CVE-2026-73683</a></td><td class="flat">HIGH</td><td>8.10</td><td>2026-08-14</td><td>—</td><td>Laravel Socialite's Facebook provider contains an authentication bypass vulnerability that allows unauthentica</td></tr>
+<tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63649">CVE-2026-63649</a></td><td class="flat">—</td><td>—</td><td>2026-08-14</td><td>—</td><td>The Windows interactive service in OpenVPN 2.4.0 through 2.6.21 and 2.7_alpha1 through 2.7.5 allows local auth</td></tr>
 </table>
 
   <p class="kicker">Merged · patch first</p>
@@ -348,7 +406,7 @@ level: high
     source link. EPSS is a probability score, not a verdict: a low EPSS does
     not mean a CVE is safe.</p>
 
-  <p class="meta">Sources: <a href='https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json'>CISA KEV</a> · <a href='https://services.nvd.nist.gov/rest/json/cves/2.0'>NVD</a> · <a href='https://api.first.org/data/v1/epss'>FIRST EPSS</a> · window since 2026-08-14 · fetched 2026-08-14 18:29 UTC</p>
+  <p class="meta">Sources: <a href='https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json'>CISA KEV</a> · <a href='https://services.nvd.nist.gov/rest/json/cves/2.0'>NVD</a> · <a href='https://api.first.org/data/v1/epss'>FIRST EPSS</a> · window since 2026-08-14 · fetched 2026-08-15 11:07 UTC</p>
 </main>
 </body>
 </html>
