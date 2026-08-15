@@ -48,6 +48,14 @@
   th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
        text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
   tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
   .ok { color: var(--ok); font-weight: 600; }
   .bad { color: var(--bad); font-weight: 600; }
   .flat { color: var(--flat); }
@@ -70,6 +78,21 @@
   .rulings .date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
                    text-transform: uppercase; color: var(--muted); }
   .rulings a { font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+           margin-bottom: 1.4rem; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1rem 1.2rem; }
+  .stat .label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 1.5rem; font-weight: 700; margin: .3rem 0 .1rem; }
+  .stat .delta { font-size: .85rem; }
+  .movers { list-style: none; }
+  .movers li { display: flex; justify-content: space-between; gap: 1rem;
+               padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  .movers li:last-child { border-bottom: none; }
+  .movers .name { font-weight: 500; }
+  .movers .num { font-family: var(--mono); font-size: .85rem; white-space: nowrap; }
 
 </style>
 </head>
@@ -103,8 +126,7 @@
     <div class="col">
       <h2>Canada — CTA rulings</h2>
       <p class="sub">Canadian Transportation Agency decisions, rail-relevant only.</p>
-      <ul class="rulings"><li><div class="date">2026-07-06</div><a href="http://www.otc-cta.gc.ca/node/573661">Eddy Aceti against the Canadian National Railway Company - noise and vibration complaint</a></li>
-<li><div class="date">2026-07-07</div><a href="http://www.otc-cta.gc.ca/node/573665">Oleg Kantargi against the Canadian National Railway Company - noise and vibration complaint</a></li>
+      <ul class="rulings"><li class="muted">No rulings in this window.</li>
 </ul>
     </div>
   </div>
@@ -114,7 +136,7 @@
     (CN, CPKC, demurrage, tariff, freight, …) are shown. No LLM — every row is
     a real ruling with a link.</p>
 
-  <p class="meta">Sources: <a href='https://www.stb.gov/proceedings-actions/decisions/feed/'>STB decisions feed</a> · <a href='https://otc-cta.gc.ca/eng/rulings/decisions/atom'>CTA Atom feed</a> · fetched 2026-08-14 16:40 UTC</p>
+  <p class="meta">Sources: <a href='https://www.stb.gov/proceedings-actions/decisions/feed/'>STB decisions feed</a> · <a href='https://otc-cta.gc.ca/eng/rulings/decisions/atom'>CTA Atom feed</a> · fetched 2026-08-15 14:17 UTC</p>
 </main>
 </body>
 </html>
