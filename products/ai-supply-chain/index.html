@@ -107,13 +107,13 @@
 </header>
 <main>
 
-  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">30</div></div><div class="stat"><div class="label">Total</div><div class="value">30</div></div></div>
+  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">0</div></div><div class="stat"><div class="label">Total</div><div class="value">0</div></div></div>
 
   <p class="kicker">Curated AI packages · OSV</p>
   <h2>AI ecosystem</h2>
   <p class="muted">Advisories for the curated AI-package list (langchain,
     transformers, llama-index, ollama, torch, fastapi, …) since
-    <strong>2026-08-16</strong>.</p>
+    <strong>2026-08-19</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
   <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
@@ -122,39 +122,10 @@
   <p class="kicker">GitHub Security Advisories · pip/npm/go/rust</p>
   <h2>General</h2>
   <p class="muted">Recent advisories across the ecosystems Koen's stack
-    depends on, since <strong>2026-08-16</strong>.</p>
+    depends on, since <strong>2026-08-19</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td><a href="https://github.com/advisories/GHSA-rh9c-rqvg-f7pr">GHSA-rh9c-rqvg-f7pr</a></td><td>linuxfabrik-lib</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73974">CVE-2026-73974</a></td><td>2026-08-18</td><td>linuxfabrik-lib: Arbitrary root file read via live --test argument (lib.lftest) across sudoers-white</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-hfg8-hc9c-6c3h">GHSA-hfg8-hc9c-6c3h</a></td><td>github.com/moby/go-archive</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-17106">CVE-2026-17106</a></td><td>2026-08-18</td><td>moby/go-archive: Crafted tar archive can write outside the extraction directory</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-7gww-x7fh-jf9j">GHSA-7gww-x7fh-jf9j</a></td><td>librenms/librenms</td><td>composer</td><td class="bad">HIGH</td><td>—</td><td>2026-08-18</td><td>LibreNMS: SSRF-driven stored XSS via Oxidized API response fields in device showconfig page</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-7cj5-v4pp-v632">GHSA-7cj5-v4pp-v632</a></td><td>librenms/librenms</td><td>composer</td><td class="flat">MEDIUM</td><td>—</td><td>2026-08-18</td><td>LibreNMS: Stored XSS via graph_descr admin config settings echoed without escaping to all authentica</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-jf24-8g2h-2wg7">GHSA-jf24-8g2h-2wg7</a></td><td>librenms/librenms</td><td>composer</td><td class="flat">MEDIUM</td><td>—</td><td>2026-08-18</td><td>LibreNMS Vulnerable to Remote Code Execution via AboutController</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-pxmc-2ffp-8j67">GHSA-pxmc-2ffp-8j67</a></td><td>lemur</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71417">CVE-2026-71417</a></td><td>2026-08-18</td><td>Lemur: Any user can revoke arbitrary certificates at the CA by uploading a duplicate record and revo</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-4h97-p9wq-chqj">GHSA-4h97-p9wq-chqj</a></td><td>lemur</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71322">CVE-2026-71322</a></td><td>2026-08-18</td><td>Lemur: Missing authorization check on POST /certificates/<id>/export for plugins with requires_key =</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-g7p5-89mh-248h">GHSA-g7p5-89mh-248h</a></td><td>lemur</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71317">CVE-2026-71317</a></td><td>2026-08-18</td><td>Lemur: Sub-CA creation never checks `AuthorityPermission` on the parent authority</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-cfh6-pv5c-38jv">GHSA-cfh6-pv5c-38jv</a></td><td>lemur</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71308">CVE-2026-71308</a></td><td>2026-08-18</td><td>Lemur: Unchecked `replaces[]` lets any user silence notifications and hijack auto-rotation for arbit</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-6c8m-q6g9-vrw3">GHSA-6c8m-q6g9-vrw3</a></td><td>lemur</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71307">CVE-2026-71307</a></td><td>2026-08-18</td><td>Lemur: Authenticated low-privilege users can read plaintext destination credentials (SFTP password /</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-v5rc-cpwc-cfpr">GHSA-v5rc-cpwc-cfpr</a></td><td>lemur</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71303">CVE-2026-71303</a></td><td>2026-08-18</td><td>Lemur: Incomplete fix for GHSA-v2wp-frmc-5q3v -- ACME authority update endpoint allows non-admin to </td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-f3qq-49m6-rw8f">GHSA-f3qq-49m6-rw8f</a></td><td>lemur</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-70667">CVE-2026-70667</a></td><td>2026-08-18</td><td>Lemur: SSRF protection in certificate revocation checking bypassable via HTTP redirects and DNS rebi</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-xpmj-wjcp-6pww">GHSA-xpmj-wjcp-6pww</a></td><td>lemur</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-70666">CVE-2026-70666</a></td><td>2026-08-18</td><td>Lemur: Server-Side Request Forgery via the ACME client following server-controlled URLs</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-7788-ghfq-c6mh">GHSA-7788-ghfq-c6mh</a></td><td>froxlor/froxlor</td><td>composer</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-62988">CVE-2026-62988</a></td><td>2026-08-18</td><td>Froxlor: Credential and 2FA secret disclosure via Froxlor API endpoints</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-xpr4-8vp6-c87j">GHSA-xpr4-8vp6-c87j</a></td><td>froxlor/froxlor</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55593">CVE-2026-55593</a></td><td>2026-08-18</td><td>Froxlor has CSRF Vulnerability in AJAX Endpoint — Missing Cross-Site Request Forgery Protection</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-5rw4-4665-cvwf">GHSA-5rw4-4665-cvwf</a></td><td>froxlor/froxlor</td><td>composer</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54543">CVE-2026-54543</a></td><td>2026-08-18</td><td>Froxlor DomainZones.add allows DNS zone-file RR injection via record/type fields</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-w27m-rmmf-g5w4">GHSA-w27m-rmmf-g5w4</a></td><td>froxlor/froxlor</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54348">CVE-2026-54348</a></td><td>2026-08-18</td><td>Froxlor: Second-Order SQL Injection via `Admins.add` `ipaddress` Parameter Allows Full Database Exfi</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-43gm-9rr3-cx7g">GHSA-43gm-9rr3-cx7g</a></td><td>froxlor/froxlor</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54347">CVE-2026-54347</a></td><td>2026-08-18</td><td>Froxlor: Stored XSS in DNS TXT Record Content Allows Customer-to-Admin Account Takeover</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-m5pq-69xg-vcq3">GHSA-m5pq-69xg-vcq3</a></td><td>devpi-server</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54723">CVE-2026-54723</a></td><td>2026-08-18</td><td>devpi-server may leak database contents</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-59xm-4m8c-g3xj">GHSA-59xm-4m8c-g3xj</a></td><td>mineadmin/mineadmin</td><td>composer</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55224">CVE-2026-55224</a></td><td>2026-08-18</td><td>MineAdmin Vulnerable to Path Traversal via Unsanitized identifier in Plugin Install/Uninstall</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-wg9g-w2j2-8pgr">GHSA-wg9g-w2j2-8pgr</a></td><td>monai</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-18</td><td>MONAI: Unsafe deserialization in NumpyReader allows arbitrary code execution via malicious .npy file</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-rghg-q7wp-9767">GHSA-rghg-q7wp-9767</a></td><td>MONAI</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-18</td><td>MONAI vulnerable to OS command injection</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-qxq5-qhx6-94qw">GHSA-qxq5-qhx6-94qw</a></td><td>monai</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-18</td><td>Incomplete Fix in MONAI: algo_from_pickle() pickle.loads() RCE still present in v1.5.2 despite GHSA-</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-vjf8-9fx6-mv6x">GHSA-vjf8-9fx6-mv6x</a></td><td>triton-vm</td><td>rust</td><td class="flat">MEDIUM</td><td>—</td><td>2026-08-18</td><td>Triton VM Soundness Vulnerability due to Missing Constraint</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-pcw8-m77r-2528">GHSA-pcw8-m77r-2528</a></td><td>mtdowling/jmespath.php</td><td>composer</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-54133">CVE-2026-54133</a></td><td>2026-08-18</td><td>jmespath.php has CompilerRuntime code injection via unescaped function names</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-43hj-fxwj-49qw">GHSA-43hj-fxwj-49qw</a></td><td>membrane_mp4_plugin</td><td>erlang</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-53423">CVE-2026-53423</a></td><td>2026-08-18</td><td>membrane_mp4_plugin has an unauthenticated denial-of-service via BEAM atom table exhaustion</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-rcr2-hggw-43wm">GHSA-rcr2-hggw-43wm</a></td><td>surfio</td><td>pip</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55211">CVE-2026-55211</a></td><td>2026-08-18</td><td>surfio has an out-of-bounds read</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-pr85-w493-9w3x">GHSA-pr85-w493-9w3x</a></td><td>resdata</td><td>pip</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55209">CVE-2026-55209</a></td><td>2026-08-18</td><td>resdata has Classic Buffer Overflow, Improper Validation of Array Index, NULL Pointer Dereference an</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-7pwq-q9jf-539h">GHSA-7pwq-q9jf-539h</a></td><td>kobako</td><td>rubygems</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55107">CVE-2026-55107</a></td><td>2026-08-18</td><td>kobako Sandbox Escape: guest eval reaches host RCE via method_missing → public_send (any bound Servi</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-c7hr-448w-65px">GHSA-c7hr-448w-65px</a></td><td>meshcentral</td><td>npm</td><td class="bad">HIGH</td><td>—</td><td>2026-08-18</td><td>MeshCentral has unsanitized data fields</td></tr>
+  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
 </table>
 
   <p class="note"><strong>Methodology:</strong> GitHub Security Advisories
@@ -166,7 +137,7 @@
     with a source link. OSV querybatch returns sparse records; full details
     are fetched per advisory (capped at 15 per run).</p>
 
-  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-16 · fetched 2026-08-19 17:07 UTC</p>
+  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-19 · fetched 2026-08-20 17:07 UTC</p>
 </main>
 </body>
 </html>
