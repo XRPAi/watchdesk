@@ -107,13 +107,13 @@
 </header>
 <main>
 
-  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">0</div></div><div class="stat"><div class="label">Total</div><div class="value">0</div></div></div>
+  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">30</div></div><div class="stat"><div class="label">Total</div><div class="value">30</div></div></div>
 
   <p class="kicker">Curated AI packages · OSV</p>
   <h2>AI ecosystem</h2>
   <p class="muted">Advisories for the curated AI-package list (langchain,
     transformers, llama-index, ollama, torch, fastapi, …) since
-    <strong>2026-08-23</strong>.</p>
+    <strong>2026-08-24</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
   <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
@@ -122,10 +122,39 @@
   <p class="kicker">GitHub Security Advisories · pip/npm/go/rust</p>
   <h2>General</h2>
   <p class="muted">Recent advisories across the ecosystems Koen's stack
-    depends on, since <strong>2026-08-23</strong>.</p>
+    depends on, since <strong>2026-08-24</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
+  <tr><td><a href="https://github.com/advisories/GHSA-qj6x-xx2h-8hvv">GHSA-qj6x-xx2h-8hvv</a></td><td>@platejs/media</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55596">CVE-2026-55596</a></td><td>2026-08-25</td><td>Plate: Media embed provider metadata can bypass URL sanitization and execute iframe JavaScript</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-m9mq-7m7q-xc6p">GHSA-m9mq-7m7q-xc6p</a></td><td>browse-mcp</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55557">CVE-2026-55557</a></td><td>2026-08-25</td><td>browse-mcp has an arbitrary file write via unconfined download and state paths</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-q27q-98j4-9pfv">GHSA-q27q-98j4-9pfv</a></td><td>qwed</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55585">CVE-2026-55585</a></td><td>2026-08-25</td><td>qwed Vulnerable to Authenticated Remote Code Execution via Unsafe SymPy `parse_expr()`</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-hq3h-g68c-hp78">GHSA-hq3h-g68c-hp78</a></td><td>urllib</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55553">CVE-2026-55553</a></td><td>2026-08-25</td><td>urllib's cross-origin redirects preserve credential-bearing request headers, leading to potential cr</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-vfp3-v2gw-7wfq">GHSA-vfp3-v2gw-7wfq</a></td><td>github.com/labstack/echo/v5</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55677">CVE-2026-55677</a></td><td>2026-08-25</td><td>Echo: Encoded slash (%2F) bypasses route-level protection and exposes static files</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-xx4j-w367-7247">GHSA-xx4j-w367-7247</a></td><td>djust</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55571">CVE-2026-55571</a></td><td>2026-08-25</td><td>djust authentication bypass: a login_required / on_mount LiveView mount redirect does not close the </td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8vh3-g2qg-2h2c">GHSA-8vh3-g2qg-2h2c</a></td><td>nextcloud-mcp-server</td><td>pip</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55640">CVE-2026-55640</a></td><td>2026-08-25</td><td>nextcloud-mcp-server: Unauthenticated `POST /webhooks/nextcloud` allows arbitrary vector data deleti</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8qx3-8gm5-9cj2">GHSA-8qx3-8gm5-9cj2</a></td><td>pickem</td><td>npm</td><td class="bad">HIGH</td><td>—</td><td>2026-08-25</td><td>pickem vulnerable to terminal escape-sequence injection via unsanitized item text</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8cp3-qxj6-px34">GHSA-8cp3-qxj6-px34</a></td><td>utcp-http</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-25</td><td>utcp-http has an OAuth2 `tokenUrl` Trust Boundary Bypass in OpenAPI Conversion</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-ppx3-28rw-8fpf">GHSA-ppx3-28rw-8fpf</a></td><td>utcp-gql</td><td>pip</td><td class="flat">MEDIUM</td><td>—</td><td>2026-08-25</td><td>utcp-gql SSRF: CVE-2026-44661 fix not applied to the GraphQL and WebSocket plugins</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-9qhg-99ww-9mqc">GHSA-9qhg-99ww-9mqc</a></td><td>utcp-http</td><td>pip</td><td class="bad">HIGH</td><td>—</td><td>2026-08-25</td><td>utcp-http SSRF: HTTP tool invocation follows redirects without re-validating the target</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-f5pj-2738-996m">GHSA-f5pj-2738-996m</a></td><td>github.com/sonirico/mcp-shell</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55580">CVE-2026-55580</a></td><td>2026-08-25</td><td>mcp-shell — Security Disabled by Default in Bare-Binary Deploy Path + Shell Interpreter in Secure-Mo</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-3x77-wg38-92r3">GHSA-3x77-wg38-92r3</a></td><td>github.com/sonirico/mcp-shell</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55581">CVE-2026-55581</a></td><td>2026-08-25</td><td>mcp-shell has a Secure Mode Allowlist Bypass via Default `/bin/bash` Executable</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-74hp-mggr-hv58">GHSA-74hp-mggr-hv58</a></td><td>github.com/sonirico/mcp-shell</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55582">CVE-2026-55582</a></td><td>2026-08-25</td><td>mcp-shell has a Secure Mode Allowlist Bypass via Git Shell Alias</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-mw6r-2hvm-4rp2">GHSA-mw6r-2hvm-4rp2</a></td><td>qwed-mcp</td><td>pip</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55546">CVE-2026-55546</a></td><td>2026-08-25</td><td>qwed-mcp has Unsafe SymPy `parse_expr()` Remote Code Execution via Unsanitized Math Expression Input</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-6g6r-q6gw-w8fg">GHSA-6g6r-q6gw-w8fg</a></td><td>PraisonAI</td><td>pip</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55536">CVE-2026-55536</a></td><td>2026-08-25</td><td>PraisonAI has a Browser Server WebSocket origin validation bypass via unanchored regex (patch bypass</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-pvph-5j39-v8qc">GHSA-pvph-5j39-v8qc</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55532">CVE-2026-55532</a></td><td>2026-08-25</td><td>PraisonAI: Origin-validation bypass (startswith prefix match) enables unauthenticated cross-site req</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-gfq8-hmph-9gjv">GHSA-gfq8-hmph-9gjv</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55533">CVE-2026-55533</a></td><td>2026-08-25</td><td>PraisonAI: Authentication fail-open in Recipe server allows unauthenticated access when API key or J</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-2jgc-f764-c5r2">GHSA-2jgc-f764-c5r2</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55539">CVE-2026-55539</a></td><td>2026-08-25</td><td>PraisonAI: [Auth Bypass] PraisonAI async Jobs API (`/api/v1/runs`) has no authentication — unauthent</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-gxmw-5f7x-6g22">GHSA-gxmw-5f7x-6g22</a></td><td>praisonaiagents</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55527">CVE-2026-55527</a></td><td>2026-08-25</td><td>praisonaiagents vulnerable to arbitrary file write via unsanitized `user_id` in `FileMemory.__init__</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-pvxx-r596-f5qj">GHSA-pvxx-r596-f5qj</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55541">CVE-2026-55541</a></td><td>2026-08-25</td><td>PraisonAI: `--api-key` flag on `praisonai serve` is not properly enforced</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-hmfx-4v44-9qw9">GHSA-hmfx-4v44-9qw9</a></td><td>PraisonAI</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55535">CVE-2026-55535</a></td><td>2026-08-25</td><td>PraisonAI vulnerable to Server-Side Request Forgery via DNS rebinding bypass in webhook_url validati</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-rg5q-pp8p-f7jm">GHSA-rg5q-pp8p-f7jm</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55537">CVE-2026-55537</a></td><td>2026-08-25</td><td>PraisonAI: Webhook SSRF via DNS fail-open in `JobSubmitRequest.validate_webhook_url()` — bypass of C</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-r7v3-x45f-g7hp">GHSA-r7v3-x45f-g7hp</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55538">CVE-2026-55538</a></td><td>2026-08-25</td><td>PraisonAI: [Auth Bypass] `praisonai serve agents --api-key` is silently ignored — agent-invocation r</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-ch89-h4r2-c8f8">GHSA-ch89-h4r2-c8f8</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55540">CVE-2026-55540</a></td><td>2026-08-25</td><td>PraisonAI: [Path Traversal] agent tools escape the configured workspace via symlinks</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-cfxv-8fw8-rwpv">GHSA-cfxv-8fw8-rwpv</a></td><td>praisonaiagents</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55530">CVE-2026-55530</a></td><td>2026-08-25</td><td>praisonaiagents: ast_grep_rewrite rewrites arbitrary files without the @require_approval gate enforc</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-vg6p-v9vm-6fgj">GHSA-vg6p-v9vm-6fgj</a></td><td>praisonaiagents</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55524">CVE-2026-55524</a></td><td>2026-08-25</td><td>praisonaiagents vulnerable to SSRF in web_crawl tool via redirect-following and DNS rebinding (valid</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-7ww9-85pg-cv4x">GHSA-7ww9-85pg-cv4x</a></td><td>PraisonAI</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55534">CVE-2026-55534</a></td><td>2026-08-25</td><td>PraisonAI serve agents --api-key is ignored, allowing unauthenticated remote agent execution</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-x44h-65qv-cw74">GHSA-x44h-65qv-cw74</a></td><td>praisonaiagents</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55526">CVE-2026-55526</a></td><td>2026-08-25</td><td>praisonaiagents has an SSRF protection bypass in `spider_tools._host_is_blocked()` via DNS-resolved </td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-wv94-5qcp-6m36">GHSA-wv94-5qcp-6m36</a></td><td>PraisonAI</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55531">CVE-2026-55531</a></td><td>2026-08-25</td><td>PraisonAI MCP HTTP server has unauthenticated unbounded session accumulation (memory exhaustion; ses</td></tr>
 </table>
 
   <p class="note"><strong>Methodology:</strong> GitHub Security Advisories
@@ -137,7 +166,7 @@
     with a source link. OSV querybatch returns sparse records; full details
     are fetched per advisory (capped at 15 per run).</p>
 
-  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-23 · fetched 2026-08-24 17:07 UTC</p>
+  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-24 · fetched 2026-08-25 17:07 UTC</p>
 </main>
 </body>
 </html>
