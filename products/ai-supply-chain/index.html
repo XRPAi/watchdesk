@@ -107,25 +107,54 @@
 </header>
 <main>
 
-  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">0</div></div><div class="stat"><div class="label">Total</div><div class="value">0</div></div></div>
+  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">1</div></div><div class="stat"><div class="label">General</div><div class="value">30</div></div><div class="stat"><div class="label">Total</div><div class="value">31</div></div></div>
 
   <p class="kicker">Curated AI packages · OSV</p>
   <h2>AI ecosystem</h2>
   <p class="muted">Advisories for the curated AI-package list (langchain,
     transformers, llama-index, ollama, torch, fastapi, …) since
-    <strong>2026-08-30</strong>.</p>
+    <strong>2026-08-31</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
+  <tr><td><a href="https://osv.dev/vulnerability/GHSA-xrqw-3rrv-vx5w">GHSA-xrqw-3rrv-vx5w</a></td><td>transformers</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-9856">CVE-2026-9856</a></td><td>2026-08-02</td><td>Transformers save_pretrained path traversal allows arbitrary file writes through chat template names</td></tr>
 </table>
 
   <p class="kicker">GitHub Security Advisories · pip/npm/go/rust</p>
   <h2>General</h2>
   <p class="muted">Recent advisories across the ecosystems Koen's stack
-    depends on, since <strong>2026-08-30</strong>.</p>
+    depends on, since <strong>2026-08-31</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
+  <tr><td><a href="https://github.com/advisories/GHSA-fph3-ghq9-vw66">GHSA-fph3-ghq9-vw66</a></td><td>github.com/siyuan-note/siyuan/kernel</td><td>go</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-69083">CVE-2026-69083</a></td><td>2026-09-03</td><td>SiYuan: Unauthenticated SQL execution and REGEXP injection via fullTextSearchAssetContent (publish m</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-82x6-q7mm-w9cf">GHSA-82x6-q7mm-w9cf</a></td><td>toml</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-77465">CVE-2026-77465</a></td><td>2026-09-03</td><td>toml-node: Uncontrolled Recursion</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-v5mp-jgw5-2x6j">GHSA-v5mp-jgw5-2x6j</a></td><td>toml</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63376">CVE-2026-63376</a></td><td>2026-09-03</td><td>toml-node: Prototype Pollution Leads to `Object.prototype` Corruption via `__proto__` Key-Path Desyn</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-7hm9-v7vf-7g4w">GHSA-7hm9-v7vf-7g4w</a></td><td>github.com/siyuan-note/siyuan/kernel</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-69086">CVE-2026-69086</a></td><td>2026-09-03</td><td>SiYuan: Path Traversal via unvalidated avID in RenderAttributeView/AV read endpoints : reader-reacha</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-6983-jfq8-485w">GHSA-6983-jfq8-485w</a></td><td>phoenix</td><td>erlang</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-56811">CVE-2026-56811</a></td><td>2026-09-03</td><td>Phoenix: Unbounded channel joins per transport enables DoS over few connections</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-63mc-hw7g-86rr">GHSA-63mc-hw7g-86rr</a></td><td>phoenix</td><td>erlang</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-56812">CVE-2026-56812</a></td><td>2026-09-03</td><td>Phoenix: Presence keys colliding with `Object.prototype` members break existence checks</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-528h-pc64-c93x">GHSA-528h-pc64-c93x</a></td><td>stream-json</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71429">CVE-2026-71429</a></td><td>2026-09-03</td><td>stream-json: pick/ignore/filter/replace filters are O(depth²) on nested input — small crafted JSON b</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-vh22-h7hf-www7">GHSA-vh22-h7hf-www7</a></td><td>github.com/siyuan-note/siyuan/kernel</td><td>go</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-69084">CVE-2026-69084</a></td><td>2026-09-03</td><td>SiYuan: Unauthenticated arbitrary SQL execution via searchEmbedBlock (publish mode) : reader-reachab</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-6c5v-hqjr-5xxp">GHSA-6c5v-hqjr-5xxp</a></td><td>github.com/rabbitmq/amqp091-go</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-79921">CVE-2026-79921</a></td><td>2026-09-03</td><td>amqp091-go has a Potential Memory Exhaustion/Protocol Violation via Broker-Controlled Oversized Payl</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-jxwj-j7wr-gfrw">GHSA-jxwj-j7wr-gfrw</a></td><td>sanitize-html</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63670">CVE-2026-63670</a></td><td>2026-09-03</td><td>ApostropheCMS: Mutation-XSS / allowedTags bypass via literal `</textarea/>` solidus close</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-wr5r-wqp2-x4fh">GHSA-wr5r-wqp2-x4fh</a></td><td>apostrophe</td><td>npm</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63669">CVE-2026-63669</a></td><td>2026-09-03</td><td>ApostropheCMS: Missing destination-parent authorization in page `move()` allows a low-privileged edi</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-xvg9-69gf-fjrf">GHSA-xvg9-69gf-fjrf</a></td><td>mkdocs-material</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73295">CVE-2026-73295</a></td><td>2026-09-03</td><td>Material for MkDocs: DOM XSS in search suggestions via query parameter</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-p95v-992w-h6c3">GHSA-p95v-992w-h6c3</a></td><td>@toon-format/toon</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-82404">CVE-2026-82404</a></td><td>2026-09-03</td><td>TOON: Prototype pollution when decoding untrusted TOON input</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-79wm-x847-7cvg">GHSA-79wm-x847-7cvg</a></td><td>claude-code-templates</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73222">CVE-2026-73222</a></td><td>2026-09-03</td><td>Claude Code Templates: Unauthenticated OS command injection (RCE) in Claude Code Studio server (--st</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-cxvf-gvfq-36w2">GHSA-cxvf-gvfq-36w2</a></td><td>github.com/semaphoreui/semaphore</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73293">CVE-2026-73293</a></td><td>2026-09-03</td><td>Semaphore UI: Manager-to-owner privilege escalation via custom-role slug collision</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8cj9-r88m-8945">GHSA-8cj9-r88m-8945</a></td><td>github.com/semaphoreui/semaphore</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73292">CVE-2026-73292</a></td><td>2026-09-03</td><td>Semaphore UI: CSRF vulnerability on password change endpoint - No CSRF token or password confirmatio</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-fg9p-mrxr-hvq7">GHSA-fg9p-mrxr-hvq7</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-62681">CVE-2026-62681</a></td><td>2026-09-03</td><td>Orval: RCE via OpenAPI path -> unescaped request-URL template literal (backtick breakout)</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-88f2-fpv8-89q2">GHSA-88f2-fpv8-89q2</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-62682">CVE-2026-62682</a></td><td>2026-09-03</td><td>Orval: RCE via servers[].url -> unescaped request-URL template literal (with getBaseUrlFromSpecifica</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-w727-8j6c-2rj4">GHSA-w727-8j6c-2rj4</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-72717">CVE-2026-72717</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via schema default -> zod module-level template literal</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-2h9g-j24r-h63g">GHSA-2h9g-j24r-h63g</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71869">CVE-2026-71869</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via array-items default -> zod module-level template literal</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8j6p-r8jg-mxqh">GHSA-8j6p-r8jg-mxqh</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71871">CVE-2026-71871</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via header-parameter default -> zod module-level template literal</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-2w86-xfrc-g85r">GHSA-2w86-xfrc-g85r</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71867">CVE-2026-71867</a></td><td>2026-09-03</td><td>Orval: RCE via schema property name -> computed-property-key injection in the MSW mock generator</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-3575-w9fc-c2j6">GHSA-3575-w9fc-c2j6</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71868">CVE-2026-71868</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via enum-typed default -> zod module-level template literal</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-653q-5476-x79g">GHSA-653q-5476-x79g</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71865">CVE-2026-71865</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via query parameter name -> computed-property-key injection in the zod cli</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-6437-gxhq-pqv8">GHSA-6437-gxhq-pqv8</a></td><td>orval</td><td>npm</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-71864">CVE-2026-71864</a></td><td>2026-09-03</td><td>Orval: Import-time RCE via header parameter name -> computed-property-key injection in the zod clien</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-jcvh-xf52-2cwm">GHSA-jcvh-xf52-2cwm</a></td><td>github.com/ffuf/ffuf/v2</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-73232">CVE-2026-73232</a></td><td>2026-09-03</td><td>ffuf denial of service (OOM) via HTTP response decompression bomb</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-8q3c-rjr9-xxrp">GHSA-8q3c-rjr9-xxrp</a></td><td>github.com/VictoriaMetrics/VictoriaMetrics</td><td>go</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-61625">CVE-2026-61625</a></td><td>2026-09-03</td><td>VictoriaMetrics vmrestore: Path traversal via crafted backup part names escapes restore root</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-m7fp-h3p4-hr49">GHSA-m7fp-h3p4-hr49</a></td><td>liquidjs</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-61556">CVE-2026-61556</a></td><td>2026-09-03</td><td>LiquidJS has an infinite loop vulnerability in its `strip_html` filter</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-h6cj-26g5-67fv">GHSA-h6cj-26g5-67fv</a></td><td>github.com/OpenListTeam/OpenList</td><td>go</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-75602">CVE-2026-75602</a></td><td>2026-09-03</td><td>OpenList: Authenticated arbitrary file write via Content-Disposition path traversal in SimpleHttp of</td></tr>
+<tr><td><a href="https://github.com/advisories/GHSA-w8wf-3qvj-6xqf">GHSA-w8wf-3qvj-6xqf</a></td><td>@openclaw/feishu</td><td>npm</td><td class="bad">HIGH</td><td>—</td><td>2026-09-03</td><td>OpenClaw Feishu permission tools could ignore per-account disablement</td></tr>
 </table>
 
   <p class="note"><strong>Methodology:</strong> GitHub Security Advisories
@@ -137,7 +166,7 @@
     with a source link. OSV querybatch returns sparse records; full details
     are fetched per advisory (capped at 15 per run).</p>
 
-  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-30 · fetched 2026-08-31 17:07 UTC</p>
+  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-08-31 · fetched 2026-09-03 21:07 UTC</p>
 </main>
 </body>
 </html>
