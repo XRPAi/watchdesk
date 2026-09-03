@@ -48,6 +48,14 @@
   th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
        text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
   tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
   .ok { color: var(--ok); font-weight: 600; }
   .bad { color: var(--bad); font-weight: 600; }
   .flat { color: var(--flat); }
@@ -90,7 +98,7 @@
 </head>
 <body>
 <nav class="nav">
-  <a class="wordmark" href="../">The Watch <em>Desk</em></a>
+  <a class="wordmark" href="../">Triple 14</a>
   <a class="back" href="../">← Back to the site</a>
 </nav>
 <header>
@@ -128,7 +136,7 @@
     are scanned images (no text layer) are shown as gaps rather than guessed.
     No LLM — every figure is a real number with a source link.</p>
 
-  <p class="meta">Sources: <a href='https://www.stb.gov/proceedings-actions/decisions/feed/'>STB decisions feed</a> · <a href='https://otc-cta.gc.ca/eng/rulings/decisions/atom'>CTA Atom feed</a> · <a href='https://www.stb.gov/news-communications/demurrage-accessorial-charges/'>STB demurrage page</a> · fetched 2026-08-14 17:05 UTC</p>
+  <p class="meta">Sources: <a href='https://www.stb.gov/proceedings-actions/decisions/feed/'>STB decisions feed</a> · <a href='https://otc-cta.gc.ca/eng/rulings/decisions/atom'>CTA Atom feed</a> · <a href='https://www.stb.gov/news-communications/demurrage-accessorial-charges/'>STB demurrage page</a> · fetched 2026-09-03 21:07 UTC</p>
 </main>
 </body>
 </html>
