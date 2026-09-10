@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Issuer Watch — 2026-09-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #f6f3ea; --card: #fffdf8; --ink: #24292e; --navy: #16324a;
+    --rail: #b4471c; --rail-ink: #8a3410; --muted: #5d6670; --line: #e2dccb;
+    --ok: #1f6b45; --bad: #a33227; --flat: #8a6d1f;
+    --serif: "Spectral", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font: 400 16px/1.6 var(--sans); background: var(--paper); color: var(--ink);
+         -webkit-font-smoothing: antialiased; }
+  a { color: var(--rail-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nav { display: flex; align-items: baseline; justify-content: space-between;
+         gap: 1rem; padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--line); }
+  .wordmark { font-family: var(--mono); font-size: .82rem; font-weight: 500;
+              letter-spacing: .22em; text-transform: uppercase; color: var(--navy); }
+  .wordmark em { color: var(--rail); font-style: normal; }
+  .wordmark:hover { text-decoration: none; }
+  .nav a.back { font-size: .95rem; color: var(--muted); }
+  .nav a.back:hover { color: var(--ink); text-decoration: none; }
+  header { padding: 3.5rem 1.5rem 1rem; max-width: 880px; margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
+             text-transform: uppercase; color: var(--rail-ink); margin-bottom: 1rem; }
+  header h1 { font-family: var(--serif); font-weight: 600; font-size: 2.1rem;
+              line-height: 1.1; color: var(--navy); }
+  header p { color: var(--muted); margin-top: .5rem; max-width: 36em; }
+  main { max-width: 880px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .kicker { font-family: var(--mono); font-size: .68rem; letter-spacing: .16em;
+            text-transform: uppercase; color: var(--rail-ink); margin: 2.2rem 0 .5rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--navy);
+       margin: 0 0 .9rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--card);
+          border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  th, td { text-align: left; padding: .65rem .9rem; border-bottom: 1px solid #f0ebdd;
+           font-variant-numeric: tabular-nums; }
+  th { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); background: #f1ecdf; }
+  tr:last-child td { border-bottom: none; }
+  .table-scroll { overflow-x: auto; border-radius: 4px; }
+  .table-scroll table { min-width: 100%; }
+  .trend td { padding: .45rem .5rem; font-size: .85rem; }
+  .trend th { padding: .45rem .5rem; font-size: .62rem; }
+  .trend td:first-child, .trend th:first-child { position: sticky; left: 0;
+    background: var(--card); }
+  .trend th:first-child { background: #f1ecdf; }
+  .trend td:last-child, .trend th:last-child { font-weight: 600; }
+  .ok { color: var(--ok); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .flat { color: var(--flat); }
+  .muted { color: var(--muted); }
+  .note { color: var(--muted); font-size: .9rem; margin-top: 1.2rem; }
+  .meta { color: var(--muted); font-size: .88rem; margin-top: 2.5rem;
+          border-top: 1px solid var(--line); padding-top: 1rem; }
+  code { font-family: var(--mono); font-size: .85em; background: #f1ecdf;
+         padding: .1rem .35rem; border-radius: 3px; }
+  .src { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+  .col { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+         padding: 1.2rem 1.4rem; }
+  .col h2 { font-size: 1.1rem; margin-bottom: .4rem; }
+  .col .sub { color: var(--muted); font-size: .88rem; margin-bottom: .9rem; }
+  .rulings { list-style: none; }
+  .rulings li { padding: .7rem 0; border-bottom: 1px solid #f0ebdd; }
+  .rulings li:last-child { border-bottom: none; }
+  .rulings .date { font-family: var(--mono); font-size: .7rem; letter-spacing: .08em;
+                   text-transform: uppercase; color: var(--muted); }
+  .rulings a { font-weight: 500; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem;
+           margin-bottom: 1.4rem; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr; } }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+          padding: 1rem 1.2rem; }
+  .stat .label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em;
+                 text-transform: uppercase; color: var(--muted); }
+  .stat .value { font-size: 1.5rem; font-weight: 700; margin: .3rem 0 .1rem; }
+  .stat .delta { font-size: .85rem; }
+  .movers { list-style: none; }
+  .movers li { display: flex; justify-content: space-between; gap: 1rem;
+               padding: .55rem 0; border-bottom: 1px solid #f0ebdd; }
+  .movers li:last-child { border-bottom: none; }
+  .movers .name { font-weight: 500; }
+  .movers .num { font-family: var(--mono); font-size: .85rem; white-space: nowrap; }
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="wordmark" href="../">Triple 14</a>
+  <a class="back" href="../">← Back to the site</a>
+</nav>
+<header>
+  <p class="eyebrow">XRPL ISSUERS · ON-LEDGER TELEMETRY · KEYLESS, DETERMINISTIC</p>
+  <h1>Issuer Watch — 2026-09-10</h1>
+</header>
+<main>
+<div class="stats">
+<div class="stat"><div class="label">issuers verified</div><div class="value">4</div></div>
+<div class="stat"><div class="label">on-ledger supply</div><div class="value">1,169,619,029</div></div>
+<div class="stat"><div class="label">ledger anchor</div><div class="value">106896650</div></div>
+</div>
+<h2 class="kicker">Issuers</h2>
+<div class="table-scroll"><table>
+<thead><tr><th>Token</th><th>Issuer</th><th>Supply</th><th>Holders</th><th>Top-10</th><th>Reconciled</th><th>Freeze</th><th>Clawback</th></tr></thead><tbody>
+<tr><td><strong>RLUSD</strong></td><td>Standard Custody &amp; Trust (Ripple)</td><td>1,031,501,745  ▼-0</td><td>67,211  ▼-2</td><td>82.5%</td><td><span class="ok">yes</span></td><td>—</td><td>—</td></tr>
+<tr><td><strong>EURCV</strong></td><td>SG-FORGE (Société Générale)</td><td>10,000,000 </td><td>1 </td><td>100.0%</td><td><span class="ok">yes</span></td><td>—</td><td>—</td></tr>
+<tr><td><strong>USDB</strong></td><td>Braza Bank S.A.</td><td>28,117,319  ▲+3.1k</td><td>27 </td><td>100.0%</td><td><span class="ok">yes</span></td><td>—</td><td>—</td></tr>
+<tr><td><strong>TBILL</strong></td><td>OpenEden</td><td>99,999,965 </td><td>111 </td><td>99.2%</td><td><span class="ok">yes</span></td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p class="note">Deterministic on-ledger data, not legal advice. Wallet attribution is never guessed: addresses are shown as-is unless publicly labeled on-ledger (Domain/AccountRoot). · n/c = not computable: trustline enumeration incomplete this run (holders shown are a floor)</p>
+<h2 class="kicker">RLUSD — issuer activity (last 200 transactions)</h2>
+<div class="table-scroll"><table><thead><tr><th>Kind</th><th>Type</th><th>Detail</th><th>Ledger</th><th>Date</th></tr></thead><tbody>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896734</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896733</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896733</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896733</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896733</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896732</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896732</td><td>2026-09-10</td></tr>
+</tbody></table></div>
+<h2 class="kicker">EURCV — issuer activity (last 134 transactions)</h2>
+<div class="table-scroll"><table><thead><tr><th>Kind</th><th>Type</th><th>Detail</th><th>Ledger</th><th>Date</th></tr></thead><tbody>
+<tr><td>redemption</td><td>Payment</td><td></td><td class="src">99961852</td><td>2025-11-03</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">99520268</td><td>2025-10-14</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">99520070</td><td>2025-10-14</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">99519749</td><td>2025-10-14</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">99518922</td><td>2025-10-14</td></tr>
+<tr><td>issuance</td><td>Payment</td><td></td><td class="src">99518471</td><td>2025-10-14</td></tr>
+<tr><td>redemption</td><td>Payment</td><td></td><td class="src">99340656</td><td>2025-10-06</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">99335400</td><td>2025-10-06</td></tr>
+<tr><td>control</td><td>TrustSet</td><td>trustset</td><td class="src">99250061</td><td>2025-10-02</td></tr>
+<tr><td>control</td><td>TrustSet</td><td>trustset</td><td class="src">99250040</td><td>2025-10-02</td></tr>
+<tr><td>issuance</td><td>Payment</td><td></td><td class="src">99183912</td><td>2025-09-29</td></tr>
+<tr><td>issuance</td><td>Payment</td><td></td><td class="src">98759011</td><td>2025-09-10</td></tr>
+</tbody></table></div>
+<h2 class="kicker">USDB — issuer activity (last 200 transactions)</h2>
+<div class="table-scroll"><table><thead><tr><th>Kind</th><th>Type</th><th>Detail</th><th>Ledger</th><th>Date</th></tr></thead><tbody>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896732</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896699</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896690</td><td>2026-09-10</td></tr>
+<tr><td>issuance</td><td>Payment</td><td></td><td class="src">106896609</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896495</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896474</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896467</td><td>2026-09-10</td></tr>
+<tr><td>issuance</td><td>Payment</td><td></td><td class="src">106896455</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896444</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896397</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896386</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896354</td><td>2026-09-10</td></tr>
+</tbody></table></div>
+<h2 class="kicker">TBILL — issuer activity (last 200 transactions)</h2>
+<div class="table-scroll"><table><thead><tr><th>Kind</th><th>Type</th><th>Detail</th><th>Ledger</th><th>Date</th></tr></thead><tbody>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896274</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896274</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896273</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896272</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106896272</td><td>2026-09-10</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106874617</td><td>2026-09-09</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106874083</td><td>2026-09-09</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106873621</td><td>2026-09-09</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106848581</td><td>2026-09-08</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106847353</td><td>2026-09-08</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106832106</td><td>2026-09-07</td></tr>
+<tr><td>other</td><td>Payment</td><td></td><td class="src">106830647</td><td>2026-09-07</td></tr>
+</tbody></table></div>
+  <p class="meta">Anchor: validated ledger 106896650 CED3308F62997439 · balance queries pinned to the anchor ledger · 269/278 queries reproducible · evidence pack manifest 5e28961aef3608fa · Endpoints https://xrplcluster.com, https://s1.ripple.com:51234 · Generated 2026-09-10 19:41 UTC · Deterministic on-ledger data, not legal advice. Wallet attribution is never guessed: addresses are shown as-is unless publicly labeled on-ledger (Domain/AccountRoot).</p>
+</main>
+</body>
+</html>
