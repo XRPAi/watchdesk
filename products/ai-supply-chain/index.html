@@ -107,53 +107,25 @@
 </header>
 <main>
 
-  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">15</div></div><div class="stat"><div class="label">General</div><div class="value">15</div></div><div class="stat"><div class="label">Total</div><div class="value">30</div></div></div>
+  <div class="stats"><div class="stat"><div class="label">AI advisories</div><div class="value">0</div></div><div class="stat"><div class="label">General</div><div class="value">0</div></div><div class="stat"><div class="label">Total</div><div class="value">0</div></div></div>
 
   <p class="kicker">Curated AI packages · OSV</p>
   <h2>AI ecosystem</h2>
   <p class="muted">Advisories for the curated AI-package list (langchain,
     transformers, llama-index, ollama, torch, fastapi, …) since
-    <strong>2026-09-09</strong>.</p>
+    <strong>2026-09-10</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td><a href="https://osv.dev/vulnerability/GHSA-gr75-jv2w-4656">GHSA-gr75-jv2w-4656</a></td><td>langchain</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-55443">CVE-2026-55443</a></td><td>2026-06-16</td><td>LangChain: Path traversal and sandbox escape in LangChain file-search middleware and loaders</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-29pf-2h5f-8g72">GHSA-29pf-2h5f-8g72</a></td><td>transformers</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-4372">CVE-2026-4372</a></td><td>2026-05-26</td><td>HuggingFace transformers vulnerable to remote code execution</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-3644-q5cj-c5c7">GHSA-3644-q5cj-c5c7</a></td><td>langsmith</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45134">CVE-2026-45134</a></td><td>2026-05-13</td><td>LangSmith SDK: Public prompt pull deserializes untrusted manifests without trust boundary warning</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-pjwx-r37v-7724">GHSA-pjwx-r37v-7724</a></td><td>langchain-core</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-44843">CVE-2026-44843</a></td><td>2026-05-08</td><td>LangChain vulnerable to unsafe deserialization of attacker-controlled objects through overly broad `</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-926x-3r5x-gfhw">GHSA-926x-3r5x-gfhw</a></td><td>langchain-core</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-40087">CVE-2026-40087</a></td><td>2026-04-08</td><td>LangChain has incomplete f-string validation in prompt templates</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-69w3-r845-3855">GHSA-69w3-r845-3855</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-1839">CVE-2026-1839</a></td><td>2026-04-07</td><td>HuggingFace Transformers allows for arbitrary code execution in the `Trainer` class</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-qh6h-p6c9-ff54">GHSA-qh6h-p6c9-ff54</a></td><td>langchain-core</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34070">CVE-2026-34070</a></td><td>2026-03-27</td><td>LangChain Core has Path Traversal vulnerabilites in legacy `load_prompt` functions</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-2g6r-c272-w58r">GHSA-2g6r-c272-w58r</a></td><td>langchain-core</td><td>PyPI</td><td class="flat">LOW</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-26013">CVE-2026-26013</a></td><td>2026-02-11</td><td>LangChain affected by SSRF via image_url token counting in ChatOpenAI.get_num_tokens_from_messages</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-c67j-w6g6-q2cm">GHSA-c67j-w6g6-q2cm</a></td><td>langchain-core</td><td>PyPI</td><td class="bad">CRITICAL</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68664">CVE-2025-68664</a></td><td>2025-12-23</td><td>LangChain serialization injection vulnerability enables secret extraction in dumps/loads APIs</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-6qv9-48xg-fc7f">GHSA-6qv9-48xg-fc7f</a></td><td>langchain-core</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-65106">CVE-2025-65106</a></td><td>2025-11-20</td><td>LangChain Vulnerable to Template Injection via Attribute Access in Prompt Templates</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-4w7r-h757-3r74">GHSA-4w7r-h757-3r74</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-6921">CVE-2025-6921</a></td><td>2025-09-23</td><td>Hugging Face Transformers vulnerable to Regular Expression Denial of Service (ReDoS) in the AdamWeig</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-59p9-h35m-wg4g">GHSA-59p9-h35m-wg4g</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-6638">CVE-2025-6638</a></td><td>2025-09-12</td><td>Hugging Face Transformers is vulnerable to ReDoS through its MarianTokenizer</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-pc6w-59fv-rh23">GHSA-pc6w-59fv-rh23</a></td><td>langchain-community</td><td>PyPI</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-6984">CVE-2025-6984</a></td><td>2025-09-04</td><td>Langchain Community Vulnerable to XML External Entity (XXE) Attacks</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-9356-575x-2w9m">GHSA-9356-575x-2w9m</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-5197">CVE-2025-5197</a></td><td>2025-08-06</td><td>Hugging Face Transformers Regular Expression Denial of Service (ReDoS) vulnerability</td></tr>
-<tr><td><a href="https://osv.dev/vulnerability/GHSA-37mw-44qp-f5jm">GHSA-37mw-44qp-f5jm</a></td><td>transformers</td><td>PyPI</td><td class="flat">MODERATE</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-3933">CVE-2025-3933</a></td><td>2025-07-11</td><td>Transformers is vulnerable to ReDoS attack through its DonutProcessor class</td></tr>
+  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
 </table>
 
   <p class="kicker">GitHub Security Advisories · pip/npm/go/rust</p>
   <h2>General</h2>
   <p class="muted">Recent advisories across the ecosystems Koen's stack
-    depends on, since <strong>2026-09-09</strong>.</p>
+    depends on, since <strong>2026-09-10</strong>.</p>
   <table><tr><th>Advisory</th><th>Package</th><th>Ecosystem</th>
     <th>Severity</th><th>CVE</th><th>Published</th><th>Summary</th></tr>
-  <tr><td><a href="https://github.com/advisories/GHSA-34ff-336r-5q23">GHSA-34ff-336r-5q23</a></td><td>n8n</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-86082">CVE-2026-86082</a></td><td>2026-09-10</td><td>n8n: Domain-Restriction Bypass via Unguarded Model-Search Endpoint in OpenAI Chat Model Node</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-j535-v25q-vx3q">GHSA-j535-v25q-vx3q</a></td><td>n8n</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-86081">CVE-2026-86081</a></td><td>2026-09-10</td><td>n8n: Regular Expression Denial of Service in the Default Blocked-File-Pattern Match via a Git Node C</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-hh89-3r9w-qj3j">GHSA-hh89-3r9w-qj3j</a></td><td>n8n</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-86075">CVE-2026-86075</a></td><td>2026-09-10</td><td>n8n: Unauthenticated Persistent Storage Exhaustion via OAuth Dynamic Client Registration Endpoint</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-hw8v-xxg5-vvvx">GHSA-hw8v-xxg5-vvvx</a></td><td>n8n</td><td>npm</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-86076">CVE-2026-86076</a></td><td>2026-09-10</td><td>n8n: Expression Sandbox Escape via Class-Field Sanitizer Rebinding Can Lead to Code Execution</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-pcvc-8vrv-8q6w">GHSA-pcvc-8vrv-8q6w</a></td><td>open-webui</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87017">CVE-2026-87017</a></td><td>2026-09-10</td><td>Open WebUI: Inaccessible knowledge bases are exposed through the built-in knowledge tool on most vec</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-fmqh-xp37-5hr8">GHSA-fmqh-xp37-5hr8</a></td><td>open-webui</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87994">CVE-2026-87994</a></td><td>2026-09-10</td><td>Open WebUI: Channel members can overwrite another member's message via the chat completions endpoint</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-jmc6-2wr8-h3wj">GHSA-jmc6-2wr8-h3wj</a></td><td>open-webui</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87995">CVE-2026-87995</a></td><td>2026-09-10</td><td>Open WebUI: Same-origin XSS to account takeover via terminal port-preview iframe hardcoding allow-sa</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-4v28-j6q3-5m4r">GHSA-4v28-j6q3-5m4r</a></td><td>open-webui</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87996">CVE-2026-87996</a></td><td>2026-09-10</td><td>Open WebUI: SSRF into internal services via DNS rebinding in the Playwright web loader</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-3pf7-q2g3-wj28">GHSA-3pf7-q2g3-wj28</a></td><td>open-webui</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87997">CVE-2026-87997</a></td><td>2026-09-10</td><td>Open WebUI: Any authenticated user can inject chats into another user's folder via chat completions</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-2724-6cpj-gf3v">GHSA-2724-6cpj-gf3v</a></td><td>open-webui</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87998">CVE-2026-87998</a></td><td>2026-09-10</td><td>Open WebUI: Non-admin users can delete admin-owned external knowledge connections via knowledge base</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-34r3-9m95-vq73">GHSA-34r3-9m95-vq73</a></td><td>open-webui</td><td>pip</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-87999">CVE-2026-87999</a></td><td>2026-09-10</td><td>Open WebUI: Any authenticated user can reach the Azure platform channel via server-side web fetch</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-4qg5-cxx4-g927">GHSA-4qg5-cxx4-g927</a></td><td>open-webui</td><td>pip</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-88005">CVE-2026-88005</a></td><td>2026-09-10</td><td>Open WebUI: Users denied by the OAuth domain allowlist or role policy can still sign in via token ex</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-q5j5-6p94-4gwc">GHSA-q5j5-6p94-4gwc</a></td><td>github.com/xuri/excelize/v2</td><td>go</td><td class="bad">HIGH</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59161">CVE-2026-59161</a></td><td>2026-09-10</td><td>Excelize: Streaming GetRows row-bound bypass causes attacker-controlled allocation</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-fx5j-qcqg-grpf">GHSA-fx5j-qcqg-grpf</a></td><td>github.com/xuri/excelize/v2</td><td>go</td><td class="flat">MEDIUM</td><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-59162">CVE-2026-59162</a></td><td>2026-09-10</td><td>Excelize: Negative shared-string index causes panic in GetCellValue and GetRows</td></tr>
-<tr><td><a href="https://github.com/advisories/GHSA-x7m8-jrm8-hpvx">GHSA-x7m8-jrm8-hpvx</a></td><td>@eigenpal/docx-editor-core</td><td>npm</td><td class="bad">HIGH</td><td>—</td><td>2026-09-10</td><td>@eigenpal/docx-editor-react: CSS injection and print-time XSS via unescaped embedded font-family nam</td></tr>
+  <tr><td colspan="6" class="muted">No advisories in this window.</td></tr>
 </table>
 
   <p class="note"><strong>Methodology:</strong> GitHub Security Advisories
@@ -165,7 +137,7 @@
     with a source link. OSV querybatch returns sparse records; full details
     are fetched per advisory (capped at 15 per run).</p>
 
-  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-09-09 · fetched 2026-09-10 17:07 UTC</p>
+  <p class="meta">Sources: <a href='https://api.github.com/advisories'>GitHub Security Advisories</a> · <a href='https://api.osv.dev/v1/querybatch'>OSV</a> · window since 2026-09-10 · fetched 2026-09-11 17:07 UTC</p>
 </main>
 </body>
 </html>
